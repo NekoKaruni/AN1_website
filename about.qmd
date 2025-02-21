@@ -1,5 +1,5 @@
 ---
-title: "About AN1"
+title: "Python×投資(東証スタンダード)×有価証券報告書"
 author: Karuni
 date: today
 format: 
@@ -7,8 +7,6 @@ format:
     toc: true
     number-sections: true
 ---
-
-### Python×投資(東証スタンダード)×有価証券報告書
 
 #### **テーマ：東証スタンダード市場と個人投資家**
 

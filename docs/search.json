@@ -2,9 +2,37 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "AN1_web",
+    "title": "📈 東証スタンダード市場 投資分析サイト",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nCode\n1 + 1\n\n\n[1] 2"
+    "text": "本サイトでは、東証スタンダード市場を対象にした個人投資家向けの投資分析 を行います。"
+  },
+  {
+    "objectID": "index.html#このサイトでわかること",
+    "href": "index.html#このサイトでわかること",
+    "title": "📈 東証スタンダード市場 投資分析サイト",
+    "section": "1 📌 このサイトでわかること",
+    "text": "1 📌 このサイトでわかること\n\n東証スタンダード市場の特徴と投資環境\n財務指標を使った銘柄選定の考え方\nデータ分析を活用した投資戦略の検討"
+  },
+  {
+    "objectID": "index.html#東証スタンダード市場とは",
+    "href": "index.html#東証スタンダード市場とは",
+    "title": "📈 東証スタンダード市場 投資分析サイト",
+    "section": "2 📊 東証スタンダード市場とは？",
+    "text": "2 📊 東証スタンダード市場とは？\n日本の株式市場は大きく3つのセグメントに分かれています。\n\n\n\n\n\n\n\n\n市場\n特徴\n投資対象\n\n\n\n\nプライム市場\n安定性が高いが、機関投資家主体\n配当狙い\n\n\nスタンダード市場\n中小企業が多く、安定性と成長性のバランス\n両方を狙える\n\n\nグロース市場\n成長性が高いが、リスクも大きい\nキャピタルゲイン狙い\n\n\n\nスタンダード市場は 「成長性」と「安定性」 を兼ね備えており、個人投資家にとって適した市場ではないかと考えます。"
+  },
+  {
+    "objectID": "index.html#投資分析の視点",
+    "href": "index.html#投資分析の視点",
+    "title": "📈 東証スタンダード市場 投資分析サイト",
+    "section": "3 🔍 投資分析の視点",
+    "text": "3 🔍 投資分析の視点\n\n3.1 1️⃣ 財務指標を用いた投資判断\n\nPBR（株価純資産倍率）：低PBRの割安銘柄を選定\nPER（株価収益率）：収益力の高い企業を評価\n配当利回り：安定的なインカムゲインを狙う\nキャッシュフロー分析：財務の健全性を確認\n\n\n\n3.2 2️⃣ 個人投資家の行動と心理\n\nプロスペクト理論 を考慮し、リスク管理を重視\n企業の成長性 vs. 安定性のバランス を考えた投資戦略"
+  },
+  {
+    "objectID": "index.html#使用ツール",
+    "href": "index.html#使用ツール",
+    "title": "📈 東証スタンダード市場 投資分析サイト",
+    "section": "4 🛠️ 使用ツール",
+    "text": "4 🛠️ 使用ツール\n\nJupyterLab - Pythonを使ったデータ分析\nRStudio - Rを用いたデータ可視化\nGitHub - コードとレポート管理\nJ-Quants? - 企業データの取得"
   },
   {
     "objectID": "about.html",
