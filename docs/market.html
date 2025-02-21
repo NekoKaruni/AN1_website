@@ -194,7 +194,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.version.string</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R version 4.4.2 (2024-10-31 ucrt)"</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">##使用パッケージ</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
@@ -210,10 +218,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">##データ</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/1376_financial.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="do">##データ</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/1376_financial.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 5 Columns: 141
@@ -227,171 +239,171 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">##列名変更　表出力</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sub_missing</span>(<span class="at">columns =</span> <span class="fu">everything</span>(), <span class="at">missing_text =</span> <span class="st">""</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(<span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Year"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Treasury Shares Number_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"自己株式の数"</span>,  </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Ordinary Shares Number_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式の数"</span>,  </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Share Issued_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"発行済み株式の数"</span>,  </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tangible Book Value_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形の帳簿価値"</span>,  </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Invested Capital_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資資本"</span>,  </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Working Capital_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"運転資本"</span>,  </span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Tangible Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純有形資産"</span>,  </span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock Equity_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式資本"</span>,  </span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Capitalization_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総資本"</span>,  </span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Equity Gross Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総資本（少数株主持分を含む）"</span>,  </span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"少数株主持分"</span>,  </span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Stockholders Equity_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"株主資本"</span>,  </span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Treasury Stock_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"自己株式"</span>,  </span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Retained Earnings_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"留保利益"</span>,  </span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Additional Paid In Capital_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"追加払込資本"</span>,  </span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Capital Stock_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"資本株式"</span>,  </span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式"</span>,  </span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Liabilities Net Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総負債（少数株主持分を除く）"</span>,  </span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Non Current Liabilities Net Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総非流動負債（少数株主持分を除く）"</span>,  </span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Current Liabilities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非流動負債"</span>,  </span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Non Current Pension And Other Postretirement Benefit Plans_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非流動年金およびその他の退職後給付プラン"</span>,  </span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Current Liabilities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"流動負債"</span>,  </span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Current Liabilities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の流動負債"</span>,  </span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Payables_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"支払債務"</span>,  </span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Tax Payable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"支払うべき総税金"</span>,  </span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Accounts Payable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"買掛金"</span>,  </span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総資産"</span>,  </span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Non Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総非流動資産"</span>,  </span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非流動資産"</span>,  </span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Non Current Deferred Taxes Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非流動繰延税金資産"</span>,  </span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Investmentin Financial Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"金融資産への投資"</span>,  </span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Available For Sale Securities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"売却可能証券"</span>,  </span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Goodwill And Other Intangible Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"のれんおよびその他の無形資産"</span>,  </span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net PPE_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純有形固定資産"</span>,  </span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gross PPE_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総有形固定資産"</span>,  </span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Properties_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の不動産"</span>,  </span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Buildings And Improvements_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"建物およびその改良"</span>,  </span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Land And Improvements_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"土地およびその改良"</span>,  </span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Properties_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"不動産"</span>,  </span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"流動資産"</span>,  </span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の流動資産"</span>,  </span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Inventory_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"在庫"</span>,  </span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Finished Goods_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"完成品"</span>,  </span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Receivables_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の受取債権"</span>,  </span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Accounts Receivable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"売掛金"</span>,  </span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gross Accounts Receivable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総売掛金"</span>,  </span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cash Cash Equivalents And Short Term Investments_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金、現金同等物および短期投資"</span>,  </span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cash And Cash Equivalents_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金および現金同等物"</span>,  </span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">ticker</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"ティッカー"</span>,  </span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Unnamed: 0_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Year1"</span>,  </span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tax Effect Of Unusual Items_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"異常項目の税効果"</span>,  </span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tax Rate For Calcs_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"計算用税率"</span>,  </span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Normalized EBITDA_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"正規化EBITDA"</span>,  </span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Unusual Items_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"異常項目合計"</span>,  </span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Unusual Items Excluding Goodwill_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"のれんを除く異常項目合計"</span>,  </span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income From Continuing Operation Net Minority Interest_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業からの純利益（少数株主持分を除く）"</span>,  </span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Reconciled Depreciation_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"修正後の減価償却"</span>,  </span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Reconciled Cost Of Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"修正後の収益原価"</span>,  </span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">EBITDA_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"EBITDA"</span>,  </span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">EBIT_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"EBIT"</span>,  </span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Interest Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純利息収入"</span>,  </span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Expense_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"利息費用"</span>,  </span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"利息収入"</span>,  </span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Normalized Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"正規化収入"</span>,  </span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income From Continuing And Discontinued Operation_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業および中止事業からの純利益"</span>,  </span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Expenses_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総費用"</span>,  </span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Operating Income As Reported_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"報告された総営業利益"</span>,  </span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Diluted Average Shares_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"希薄化後平均株式数"</span>,  </span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Basic Average Shares_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"基本平均株式数"</span>,  </span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Diluted EPS_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"希薄化後EPS"</span>,  </span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Basic EPS_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"基本EPS"</span>,  </span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Diluted NI Availto Com Stockholders_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"希薄化後純利益（普通株主に利用可能）"</span>,  </span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income Common Stockholders_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純利益（普通株主）"</span>,  </span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Otherunder Preferred Stock Dividend_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"優先株配当のその他"</span>,  </span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純利益"</span>,  </span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Minority Interests_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"少数株主持分"</span>,  </span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income Including Noncontrolling Interests_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非支配持分を含む純利益"</span>,  </span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income Continuous Operations_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業からの純利益"</span>,  </span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tax Provision_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"税金引当金"</span>,  </span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Pretax Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"税引前利益"</span>,  </span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Operating Income Expenses_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非営業収入費用"</span>,  </span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Special Income Charges_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"特別収入項目"</span>,  </span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Special Charges_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の特別費用"</span>,  </span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Write Off_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"費用処理"</span>,  </span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Non Operating Interest Income Expense_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純非営業利息収入費用"</span>,  </span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Expense Non Operating_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非営業利息費用"</span>,  </span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Income Non Operating_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非営業利息収入"</span>,  </span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業利益"</span>,  </span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Expense_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業費用"</span>,  </span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gross Profit_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総利益"</span>,  </span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cost Of Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"収益原価"</span>,  </span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総収益"</span>,  </span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業収益"</span>,  </span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Unnamed: 0_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Year2"</span>,  </span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Free Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"フリーキャッシュフロー"</span>,  </span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Repurchase Of Capital Stock_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"自己株式の再取得"</span>,  </span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Repayment Of Debt_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"借入金返済"</span>,  </span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Issuance Of Debt_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"借入金発行"</span>,  </span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Capital Expenditure_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"設備投資"</span>,  </span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">End Cash Position_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"期末現金残高"</span>,  </span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Cash Adjustment Outside Changein Cash_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金以外のその他の現金調整"</span>,  </span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Beginning Cash Position_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"期首現金残高"</span>,  </span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Effect Of Exchange Rate Changes_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"為替レート変動の影響"</span>,  </span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Changes In Cash_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金の変動"</span>,  </span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Financing Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"財務キャッシュフロー"</span>,  </span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Other Financing Charges_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純その他の財務費用"</span>,  </span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cash Dividends Paid_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金配当支払い"</span>,  </span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock Dividend Paid_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式配当支払い"</span>,  </span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Common Stock Issuance_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式発行純額"</span>,  </span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock Payments_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式支払い"</span>,  </span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Issuance Payments Of Debt_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"借入金発行の純支払い"</span>,  </span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Short Term Debt Issuance_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"短期借入金発行の純額"</span>,  </span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Short Term Debt Payments_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"短期借入金支払い"</span>,  </span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Short Term Debt Issuance_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"短期借入金発行"</span>,  </span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Investing Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資キャッシュフロー"</span>,  </span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Other Investing Changes_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純その他の投資変動"</span>,  </span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Investment Purchase And Sale_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資の購入および売却の純額"</span>,  </span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Sale Of Investment_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資の売却"</span>,  </span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Purchase Of Investment_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資の購入"</span>,  </span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Intangibles Purchase And Sale_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"無形資産の購入および売却の純額"</span>,  </span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Purchase Of Intangibles_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"無形資産の購入"</span>,  </span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net PPE Purchase And Sale_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の購入および売却の純額"</span>,  </span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Sale Of PPE_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の売却"</span>,  </span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Purchase Of PPE_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の購入"</span>,  </span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業キャッシュフロー"</span>,  </span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Taxes Refund Paid_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"税金還付支払い"</span>,  </span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Received Cfo_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"CFOからの利息受取"</span>,  </span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Paid Cfo_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"CFOへの利息支払い"</span>,  </span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Working Capital_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"運転資本の変動"</span>,  </span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Other Current Assets_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の流動資産の変動"</span>,  </span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Payable_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"支払債務の変動"</span>,  </span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Inventory_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"在庫の変動"</span>,  </span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Receivables_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"売掛金の変動"</span>,  </span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Cash Items_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非現金項目"</span>,  </span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Depreciation And Amortization_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"減価償却および償却"</span>,  </span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Depreciation_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"減価償却"</span>,  </span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gain Loss On Investment Securities_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資証券の損益"</span>,  </span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gain Loss On Sale Of PPE_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の売却損益"</span>,  </span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income From Continuing Operations_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業からの純利益"</span>,  </span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Stock_Price</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"株価"</span>,  </span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">##列名変更　表出力</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sub_missing</span>(<span class="at">columns =</span> <span class="fu">everything</span>(), <span class="at">missing_text =</span> <span class="st">""</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(<span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Year"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Treasury Shares Number_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"自己株式の数"</span>,  </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Ordinary Shares Number_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式の数"</span>,  </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Share Issued_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"発行済み株式の数"</span>,  </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tangible Book Value_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形の帳簿価値"</span>,  </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Invested Capital_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資資本"</span>,  </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Working Capital_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"運転資本"</span>,  </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Tangible Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純有形資産"</span>,  </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock Equity_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式資本"</span>,  </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Capitalization_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総資本"</span>,  </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Equity Gross Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総資本（少数株主持分を含む）"</span>,  </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"少数株主持分"</span>,  </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Stockholders Equity_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"株主資本"</span>,  </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Treasury Stock_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"自己株式"</span>,  </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Retained Earnings_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"留保利益"</span>,  </span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Additional Paid In Capital_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"追加払込資本"</span>,  </span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Capital Stock_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"資本株式"</span>,  </span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式"</span>,  </span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Liabilities Net Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総負債（少数株主持分を除く）"</span>,  </span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Non Current Liabilities Net Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総非流動負債（少数株主持分を除く）"</span>,  </span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Current Liabilities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非流動負債"</span>,  </span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Non Current Pension And Other Postretirement Benefit Plans_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非流動年金およびその他の退職後給付プラン"</span>,  </span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Current Liabilities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"流動負債"</span>,  </span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Current Liabilities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の流動負債"</span>,  </span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Payables_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"支払債務"</span>,  </span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Tax Payable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"支払うべき総税金"</span>,  </span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Accounts Payable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"買掛金"</span>,  </span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総資産"</span>,  </span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Non Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総非流動資産"</span>,  </span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非流動資産"</span>,  </span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Non Current Deferred Taxes Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非流動繰延税金資産"</span>,  </span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Investmentin Financial Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"金融資産への投資"</span>,  </span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Available For Sale Securities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"売却可能証券"</span>,  </span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Goodwill And Other Intangible Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"のれんおよびその他の無形資産"</span>,  </span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net PPE_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純有形固定資産"</span>,  </span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gross PPE_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総有形固定資産"</span>,  </span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Properties_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の不動産"</span>,  </span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Buildings And Improvements_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"建物およびその改良"</span>,  </span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Land And Improvements_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"土地およびその改良"</span>,  </span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Properties_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"不動産"</span>,  </span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"流動資産"</span>,  </span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の流動資産"</span>,  </span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Inventory_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"在庫"</span>,  </span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Finished Goods_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"完成品"</span>,  </span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Receivables_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の受取債権"</span>,  </span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Accounts Receivable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"売掛金"</span>,  </span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gross Accounts Receivable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総売掛金"</span>,  </span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cash Cash Equivalents And Short Term Investments_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金、現金同等物および短期投資"</span>,  </span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cash And Cash Equivalents_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金および現金同等物"</span>,  </span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">ticker</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"ティッカー"</span>,  </span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Unnamed: 0_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Year1"</span>,  </span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tax Effect Of Unusual Items_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"異常項目の税効果"</span>,  </span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tax Rate For Calcs_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"計算用税率"</span>,  </span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Normalized EBITDA_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"正規化EBITDA"</span>,  </span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Unusual Items_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"異常項目合計"</span>,  </span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Unusual Items Excluding Goodwill_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"のれんを除く異常項目合計"</span>,  </span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income From Continuing Operation Net Minority Interest_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業からの純利益（少数株主持分を除く）"</span>,  </span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Reconciled Depreciation_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"修正後の減価償却"</span>,  </span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Reconciled Cost Of Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"修正後の収益原価"</span>,  </span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">EBITDA_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"EBITDA"</span>,  </span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">EBIT_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"EBIT"</span>,  </span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Interest Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純利息収入"</span>,  </span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Expense_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"利息費用"</span>,  </span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"利息収入"</span>,  </span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Normalized Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"正規化収入"</span>,  </span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income From Continuing And Discontinued Operation_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業および中止事業からの純利益"</span>,  </span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Expenses_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総費用"</span>,  </span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Operating Income As Reported_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"報告された総営業利益"</span>,  </span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Diluted Average Shares_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"希薄化後平均株式数"</span>,  </span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Basic Average Shares_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"基本平均株式数"</span>,  </span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Diluted EPS_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"希薄化後EPS"</span>,  </span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Basic EPS_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"基本EPS"</span>,  </span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Diluted NI Availto Com Stockholders_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"希薄化後純利益（普通株主に利用可能）"</span>,  </span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income Common Stockholders_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純利益（普通株主）"</span>,  </span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Otherunder Preferred Stock Dividend_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"優先株配当のその他"</span>,  </span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純利益"</span>,  </span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Minority Interests_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"少数株主持分"</span>,  </span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income Including Noncontrolling Interests_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非支配持分を含む純利益"</span>,  </span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income Continuous Operations_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業からの純利益"</span>,  </span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tax Provision_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"税金引当金"</span>,  </span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Pretax Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"税引前利益"</span>,  </span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Operating Income Expenses_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非営業収入費用"</span>,  </span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Special Income Charges_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"特別収入項目"</span>,  </span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Special Charges_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の特別費用"</span>,  </span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Write Off_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"費用処理"</span>,  </span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Non Operating Interest Income Expense_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純非営業利息収入費用"</span>,  </span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Expense Non Operating_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非営業利息費用"</span>,  </span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Income Non Operating_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非営業利息収入"</span>,  </span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業利益"</span>,  </span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Expense_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業費用"</span>,  </span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gross Profit_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総利益"</span>,  </span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cost Of Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"収益原価"</span>,  </span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総収益"</span>,  </span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業収益"</span>,  </span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Unnamed: 0_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Year2"</span>,  </span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Free Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"フリーキャッシュフロー"</span>,  </span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Repurchase Of Capital Stock_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"自己株式の再取得"</span>,  </span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Repayment Of Debt_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"借入金返済"</span>,  </span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Issuance Of Debt_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"借入金発行"</span>,  </span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Capital Expenditure_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"設備投資"</span>,  </span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">End Cash Position_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"期末現金残高"</span>,  </span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Cash Adjustment Outside Changein Cash_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金以外のその他の現金調整"</span>,  </span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Beginning Cash Position_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"期首現金残高"</span>,  </span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Effect Of Exchange Rate Changes_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"為替レート変動の影響"</span>,  </span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Changes In Cash_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金の変動"</span>,  </span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Financing Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"財務キャッシュフロー"</span>,  </span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Other Financing Charges_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純その他の財務費用"</span>,  </span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cash Dividends Paid_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金配当支払い"</span>,  </span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock Dividend Paid_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式配当支払い"</span>,  </span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Common Stock Issuance_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式発行純額"</span>,  </span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock Payments_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式支払い"</span>,  </span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Issuance Payments Of Debt_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"借入金発行の純支払い"</span>,  </span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Short Term Debt Issuance_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"短期借入金発行の純額"</span>,  </span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Short Term Debt Payments_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"短期借入金支払い"</span>,  </span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Short Term Debt Issuance_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"短期借入金発行"</span>,  </span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Investing Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資キャッシュフロー"</span>,  </span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Other Investing Changes_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純その他の投資変動"</span>,  </span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Investment Purchase And Sale_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資の購入および売却の純額"</span>,  </span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Sale Of Investment_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資の売却"</span>,  </span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Purchase Of Investment_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資の購入"</span>,  </span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Intangibles Purchase And Sale_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"無形資産の購入および売却の純額"</span>,  </span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Purchase Of Intangibles_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"無形資産の購入"</span>,  </span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net PPE Purchase And Sale_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の購入および売却の純額"</span>,  </span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Sale Of PPE_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の売却"</span>,  </span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Purchase Of PPE_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の購入"</span>,  </span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業キャッシュフロー"</span>,  </span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Taxes Refund Paid_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"税金還付支払い"</span>,  </span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Received Cfo_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"CFOからの利息受取"</span>,  </span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Paid Cfo_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"CFOへの利息支払い"</span>,  </span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Working Capital_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"運転資本の変動"</span>,  </span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Other Current Assets_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の流動資産の変動"</span>,  </span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Payable_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"支払債務の変動"</span>,  </span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Inventory_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"在庫の変動"</span>,  </span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Receivables_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"売掛金の変動"</span>,  </span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Cash Items_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非現金項目"</span>,  </span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Depreciation And Amortization_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"減価償却および償却"</span>,  </span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Depreciation_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"減価償却"</span>,  </span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gain Loss On Investment Securities_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資証券の損益"</span>,  </span>
+<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gain Loss On Sale Of PPE_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の売却損益"</span>,  </span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income From Continuing Operations_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業からの純利益"</span>,  </span>
+<span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Stock_Price</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"株価"</span>,  </span>
+<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="famutivorc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#famutivorc table {
+<div id="gbqzqvjosu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gbqzqvjosu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#famutivorc thead, #famutivorc tbody, #famutivorc tfoot, #famutivorc tr, #famutivorc td, #famutivorc th {
+#gbqzqvjosu thead, #gbqzqvjosu tbody, #gbqzqvjosu tfoot, #gbqzqvjosu tr, #gbqzqvjosu td, #gbqzqvjosu th {
   border-style: none;
 }
 
-#famutivorc p {
+#gbqzqvjosu p {
   margin: 0;
   padding: 0;
 }
 
-#famutivorc .gt_table {
+#gbqzqvjosu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -417,12 +429,12 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   border-left-color: #D3D3D3;
 }
 
-#famutivorc .gt_caption {
+#gbqzqvjosu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#famutivorc .gt_title {
+#gbqzqvjosu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -434,7 +446,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   border-bottom-width: 0;
 }
 
-#famutivorc .gt_subtitle {
+#gbqzqvjosu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -446,7 +458,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   border-top-width: 0;
 }
 
-#famutivorc .gt_heading {
+#gbqzqvjosu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -458,13 +470,13 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   border-right-color: #D3D3D3;
 }
 
-#famutivorc .gt_bottom_border {
+#gbqzqvjosu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#famutivorc .gt_col_headings {
+#gbqzqvjosu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -479,7 +491,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   border-right-color: #D3D3D3;
 }
 
-#famutivorc .gt_col_heading {
+#gbqzqvjosu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -499,7 +511,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   overflow-x: hidden;
 }
 
-#famutivorc .gt_column_spanner_outer {
+#gbqzqvjosu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -511,15 +523,15 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   padding-right: 4px;
 }
 
-#famutivorc .gt_column_spanner_outer:first-child {
+#gbqzqvjosu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#famutivorc .gt_column_spanner_outer:last-child {
+#gbqzqvjosu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#famutivorc .gt_column_spanner {
+#gbqzqvjosu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -531,11 +543,11 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   width: 100%;
 }
 
-#famutivorc .gt_spanner_row {
+#gbqzqvjosu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#famutivorc .gt_group_heading {
+#gbqzqvjosu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -561,7 +573,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   text-align: left;
 }
 
-#famutivorc .gt_empty_group_heading {
+#gbqzqvjosu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -576,15 +588,15 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   vertical-align: middle;
 }
 
-#famutivorc .gt_from_md > :first-child {
+#gbqzqvjosu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#famutivorc .gt_from_md > :last-child {
+#gbqzqvjosu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#famutivorc .gt_row {
+#gbqzqvjosu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -603,7 +615,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   overflow-x: hidden;
 }
 
-#famutivorc .gt_stub {
+#gbqzqvjosu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -616,7 +628,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   padding-right: 5px;
 }
 
-#famutivorc .gt_stub_row_group {
+#gbqzqvjosu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -630,15 +642,15 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   vertical-align: top;
 }
 
-#famutivorc .gt_row_group_first td {
+#gbqzqvjosu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#famutivorc .gt_row_group_first th {
+#gbqzqvjosu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#famutivorc .gt_summary_row {
+#gbqzqvjosu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -648,16 +660,16 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   padding-right: 5px;
 }
 
-#famutivorc .gt_first_summary_row {
+#gbqzqvjosu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#famutivorc .gt_first_summary_row.thick {
+#gbqzqvjosu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#famutivorc .gt_last_summary_row {
+#gbqzqvjosu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -667,7 +679,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   border-bottom-color: #D3D3D3;
 }
 
-#famutivorc .gt_grand_summary_row {
+#gbqzqvjosu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -677,7 +689,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   padding-right: 5px;
 }
 
-#famutivorc .gt_first_grand_summary_row {
+#gbqzqvjosu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -687,7 +699,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   border-top-color: #D3D3D3;
 }
 
-#famutivorc .gt_last_grand_summary_row_top {
+#gbqzqvjosu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -697,11 +709,11 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   border-bottom-color: #D3D3D3;
 }
 
-#famutivorc .gt_striped {
+#gbqzqvjosu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#famutivorc .gt_table_body {
+#gbqzqvjosu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -710,7 +722,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   border-bottom-color: #D3D3D3;
 }
 
-#famutivorc .gt_footnotes {
+#gbqzqvjosu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -724,7 +736,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   border-right-color: #D3D3D3;
 }
 
-#famutivorc .gt_footnote {
+#gbqzqvjosu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -733,7 +745,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   padding-right: 5px;
 }
 
-#famutivorc .gt_sourcenotes {
+#gbqzqvjosu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -747,7 +759,7 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   border-right-color: #D3D3D3;
 }
 
-#famutivorc .gt_sourcenote {
+#gbqzqvjosu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -755,72 +767,72 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
   padding-right: 5px;
 }
 
-#famutivorc .gt_left {
+#gbqzqvjosu .gt_left {
   text-align: left;
 }
 
-#famutivorc .gt_center {
+#gbqzqvjosu .gt_center {
   text-align: center;
 }
 
-#famutivorc .gt_right {
+#gbqzqvjosu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#famutivorc .gt_font_normal {
+#gbqzqvjosu .gt_font_normal {
   font-weight: normal;
 }
 
-#famutivorc .gt_font_bold {
+#gbqzqvjosu .gt_font_bold {
   font-weight: bold;
 }
 
-#famutivorc .gt_font_italic {
+#gbqzqvjosu .gt_font_italic {
   font-style: italic;
 }
 
-#famutivorc .gt_super {
+#gbqzqvjosu .gt_super {
   font-size: 65%;
 }
 
-#famutivorc .gt_footnote_marks {
+#gbqzqvjosu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#famutivorc .gt_asterisk {
+#gbqzqvjosu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#famutivorc .gt_indent_1 {
+#gbqzqvjosu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#famutivorc .gt_indent_2 {
+#gbqzqvjosu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#famutivorc .gt_indent_3 {
+#gbqzqvjosu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#famutivorc .gt_indent_4 {
+#gbqzqvjosu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#famutivorc .gt_indent_5 {
+#gbqzqvjosu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#famutivorc .katex-display {
+#gbqzqvjosu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#famutivorc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gbqzqvjosu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1981,41 +1993,72 @@ date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>PL_df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span>, <span class="st">`</span><span class="at">Total Revenue_is</span><span class="st">`</span>, <span class="st">`</span><span class="at">Operating Income_is</span><span class="st">`</span>, <span class="st">`</span><span class="at">Net Income_is</span><span class="st">`</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df <span class="sc">|&gt;</span> </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span>  <span class="st">"利益"</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"金額"</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#PL_df_loの列名変更、NA消去等</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> <span class="fu">rename</span>(PL_df_lo, <span class="at">Year=</span><span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df_lo <span class="sc">|&gt;</span> </span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Year))</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df_lo <span class="sc">|&gt;</span> </span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">substr</span>(Year,<span class="dv">1</span>,<span class="dv">4</span>))</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df_lo <span class="sc">|&gt;</span> </span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(利益 <span class="ot">=</span> <span class="fu">recode</span>(利益,</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Total Revenue_is"</span> <span class="ot">=</span> <span class="st">"売上高"</span>,</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Operating Income_is"</span> <span class="ot">=</span> <span class="st">"営業利益"</span>,</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Net Income_is"</span> <span class="ot">=</span> <span class="st">"純利益"</span>))</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="sc">|&gt;</span> </span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> 金額 , <span class="at">fill =</span> 利益)) <span class="sc">+</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"売上高・営業利益・純利益の推移"</span>,</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"年度"</span>,</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"金額"</span>,</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"利益"</span>) <span class="sc">+</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>PL_df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span>, <span class="st">`</span><span class="at">Total Revenue_is</span><span class="st">`</span>, <span class="st">`</span><span class="at">Operating Income_is</span><span class="st">`</span>, <span class="st">`</span><span class="at">Net Income_is</span><span class="st">`</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df <span class="sc">|&gt;</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span>  <span class="st">"利益"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"金額"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#PL_df_loの列名変更、NA消去等</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> <span class="fu">rename</span>(PL_df_lo, <span class="at">Year=</span><span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df_lo <span class="sc">|&gt;</span> </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Year))</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df_lo <span class="sc">|&gt;</span> </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">substr</span>(Year,<span class="dv">1</span>,<span class="dv">4</span>))</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df_lo <span class="sc">|&gt;</span> </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(利益 <span class="ot">=</span> <span class="fu">recode</span>(利益,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Total Revenue_is"</span> <span class="ot">=</span> <span class="st">"売上高"</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Operating Income_is"</span> <span class="ot">=</span> <span class="st">"営業利益"</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Net Income_is"</span> <span class="ot">=</span> <span class="st">"純利益"</span>))</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="sc">|&gt;</span> </span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> 金額 , <span class="at">fill =</span> 利益)) <span class="sc">+</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"売上高・営業利益・純利益の推移"</span>,</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"年度"</span>,</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"金額"</span>,</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"利益"</span>) <span class="sc">+</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="market_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>PBR_PER_df <span class="ot">&lt;-</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(df,<span class="at">Year =</span> <span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span>, <span class="at">Share_Issued =</span> <span class="st">`</span><span class="at">Share Issued_bs</span><span class="st">`</span>, <span class="at">Stock_Price =</span> <span class="st">`</span><span class="at">Stock_Price</span><span class="st">`</span> , <span class="at">Net_income =</span> <span class="st">`</span><span class="at">Net Income_is</span><span class="st">`</span> , <span class="at">Stock_Equity =</span> <span class="st">`</span><span class="at">Stockholders Equity_bs</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Year)) <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">PBR =</span> Stock_Price <span class="sc">/</span>(Stock_Equity <span class="sc">/</span> Share_Issued),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">PER =</span> Stock_Price <span class="sc">/</span> (Net_income <span class="sc">/</span> Share_Issued))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>PBR_PER_df_long <span class="ot">&lt;-</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(PBR_PER_df, Year , PBR , PER) <span class="sc">|&gt;</span> </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Year,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"PBR_PER"</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>PBR_PER_df_long <span class="sc">|&gt;</span> </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year , <span class="at">y =</span> value, <span class="at">color =</span> PBR_PER)) <span class="sc">+</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"PBR・PERの推移"</span>,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"年度"</span> ,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"倍率"</span> ,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"指標"</span>) <span class="sc">+</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="market_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
