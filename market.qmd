@@ -1,0 +1,197 @@
+---
+title: " 📈 東証スタンダード市場分析"
+author: Karuni
+date: today
+format: 
+  html:
+    toc: true
+    number-sections: true
+---
+```{r}
+library(tidyverse)
+library(gt)
+
+##データ
+df <- read_csv("data/1376_financial.csv")
+
+##列名変更　表出力
+df|>
+  gt() |> 
+  sub_missing(columns = everything(), missing_text = "") |> 
+  cols_label(`Unnamed: 0_bs` = "Year",
+             `Treasury Shares Number_bs` = "自己株式の数",  
+             `Ordinary Shares Number_bs` = "普通株式の数",  
+             `Share Issued_bs` = "発行済み株式の数",  
+             `Tangible Book Value_bs` = "有形の帳簿価値",  
+             `Invested Capital_bs` = "投資資本",  
+             `Working Capital_bs` = "運転資本",  
+             `Net Tangible Assets_bs` = "純有形資産",  
+             `Common Stock Equity_bs` = "普通株式資本",  
+             `Total Capitalization_bs` = "総資本",  
+             `Total Equity Gross Minority Interest_bs` = "総資本（少数株主持分を含む）",  
+             `Minority Interest_bs` = "少数株主持分",  
+             `Stockholders Equity_bs` = "株主資本",  
+             `Treasury Stock_bs` = "自己株式",  
+             `Retained Earnings_bs` = "留保利益",  
+             `Additional Paid In Capital_bs` = "追加払込資本",  
+             `Capital Stock_bs` = "資本株式",  
+             `Common Stock_bs` = "普通株式",  
+             `Total Liabilities Net Minority Interest_bs` = "総負債（少数株主持分を除く）",  
+             `Total Non Current Liabilities Net Minority Interest_bs` = "総非流動負債（少数株主持分を除く）",  
+             `Other Non Current Liabilities_bs` = "その他の非流動負債",  
+             `Non Current Pension And Other Postretirement Benefit Plans_bs` = "非流動年金およびその他の退職後給付プラン",  
+             `Current Liabilities_bs` = "流動負債",  
+             `Other Current Liabilities_bs` = "その他の流動負債",  
+             `Payables_bs` = "支払債務",  
+             `Total Tax Payable_bs` = "支払うべき総税金",  
+             `Accounts Payable_bs` = "買掛金",  
+             `Total Assets_bs` = "総資産",  
+             `Total Non Current Assets_bs` = "総非流動資産",  
+             `Other Non Current Assets_bs` = "その他の非流動資産",  
+             `Non Current Deferred Taxes Assets_bs` = "非流動繰延税金資産",  
+             `Investmentin Financial Assets_bs` = "金融資産への投資",  
+             `Available For Sale Securities_bs` = "売却可能証券",  
+             `Goodwill And Other Intangible Assets_bs` = "のれんおよびその他の無形資産",  
+             `Net PPE_bs` = "純有形固定資産",  
+             `Gross PPE_bs` = "総有形固定資産",  
+             `Other Properties_bs` = "その他の不動産",  
+             `Buildings And Improvements_bs` = "建物およびその改良",  
+             `Land And Improvements_bs` = "土地およびその改良",  
+             `Properties_bs` = "不動産",  
+             `Current Assets_bs` = "流動資産",  
+             `Other Current Assets_bs` = "その他の流動資産",  
+             `Inventory_bs` = "在庫",  
+             `Finished Goods_bs` = "完成品",  
+             `Other Receivables_bs` = "その他の受取債権",  
+             `Accounts Receivable_bs` = "売掛金",  
+             `Gross Accounts Receivable_bs` = "総売掛金",  
+             `Cash Cash Equivalents And Short Term Investments_bs` = "現金、現金同等物および短期投資",  
+             `Cash And Cash Equivalents_bs` = "現金および現金同等物",  
+             `ticker` = "ティッカー",  
+             `Unnamed: 0_is` = "Year1",  
+             `Tax Effect Of Unusual Items_is` = "異常項目の税効果",  
+             `Tax Rate For Calcs_is` = "計算用税率",  
+             `Normalized EBITDA_is` = "正規化EBITDA",  
+             `Total Unusual Items_is` = "異常項目合計",  
+             `Total Unusual Items Excluding Goodwill_is` = "のれんを除く異常項目合計",  
+             `Net Income From Continuing Operation Net Minority Interest_is` = "継続事業からの純利益（少数株主持分を除く）",  
+             `Reconciled Depreciation_is` = "修正後の減価償却",  
+             `Reconciled Cost Of Revenue_is` = "修正後の収益原価",  
+             `EBITDA_is` = "EBITDA",  
+             `EBIT_is` = "EBIT",  
+             `Net Interest Income_is` = "純利息収入",  
+             `Interest Expense_is` = "利息費用",  
+             `Interest Income_is` = "利息収入",  
+             `Normalized Income_is` = "正規化収入",  
+             `Net Income From Continuing And Discontinued Operation_is` = "継続事業および中止事業からの純利益",  
+             `Total Expenses_is` = "総費用",  
+             `Total Operating Income As Reported_is` = "報告された総営業利益",  
+             `Diluted Average Shares_is` = "希薄化後平均株式数",  
+             `Basic Average Shares_is` = "基本平均株式数",  
+             `Diluted EPS_is` = "希薄化後EPS",  
+             `Basic EPS_is` = "基本EPS",  
+             `Diluted NI Availto Com Stockholders_is` = "希薄化後純利益（普通株主に利用可能）",  
+             `Net Income Common Stockholders_is` = "純利益（普通株主）",  
+             `Otherunder Preferred Stock Dividend_is` = "優先株配当のその他",  
+             `Net Income_is` = "純利益",  
+             `Minority Interests_is` = "少数株主持分",  
+             `Net Income Including Noncontrolling Interests_is` = "非支配持分を含む純利益",  
+             `Net Income Continuous Operations_is` = "継続事業からの純利益",  
+             `Tax Provision_is` = "税金引当金",  
+             `Pretax Income_is` = "税引前利益",  
+             `Other Non Operating Income Expenses_is` = "その他の非営業収入費用",  
+             `Special Income Charges_is` = "特別収入項目",  
+             `Other Special Charges_is` = "その他の特別費用",  
+             `Write Off_is` = "費用処理",  
+             `Net Non Operating Interest Income Expense_is` = "純非営業利息収入費用",  
+             `Interest Expense Non Operating_is` = "非営業利息費用",  
+             `Interest Income Non Operating_is` = "非営業利息収入",  
+             `Operating Income_is` = "営業利益",  
+             `Operating Expense_is` = "営業費用",  
+             `Gross Profit_is` = "総利益",  
+             `Cost Of Revenue_is` = "収益原価",  
+             `Total Revenue_is` = "総収益",  
+             `Operating Revenue_is` = "営業収益",  
+             `Unnamed: 0_cf` = "Year2",  
+             `Free Cash Flow_cf` = "フリーキャッシュフロー",  
+             `Repurchase Of Capital Stock_cf` = "自己株式の再取得",  
+             `Repayment Of Debt_cf` = "借入金返済",  
+             `Issuance Of Debt_cf` = "借入金発行",  
+             `Capital Expenditure_cf` = "設備投資",  
+             `End Cash Position_cf` = "期末現金残高",  
+             `Other Cash Adjustment Outside Changein Cash_cf` = "現金以外のその他の現金調整",  
+             `Beginning Cash Position_cf` = "期首現金残高",  
+             `Effect Of Exchange Rate Changes_cf` = "為替レート変動の影響",  
+             `Changes In Cash_cf` = "現金の変動",  
+             `Financing Cash Flow_cf` = "財務キャッシュフロー",  
+             `Net Other Financing Charges_cf` = "純その他の財務費用",  
+             `Cash Dividends Paid_cf` = "現金配当支払い",  
+             `Common Stock Dividend Paid_cf` = "普通株式配当支払い",  
+             `Net Common Stock Issuance_cf` = "普通株式発行純額",  
+             `Common Stock Payments_cf` = "普通株式支払い",  
+             `Net Issuance Payments Of Debt_cf` = "借入金発行の純支払い",  
+             `Net Short Term Debt Issuance_cf` = "短期借入金発行の純額",  
+             `Short Term Debt Payments_cf` = "短期借入金支払い",  
+             `Short Term Debt Issuance_cf` = "短期借入金発行",  
+             `Investing Cash Flow_cf` = "投資キャッシュフロー",  
+             `Net Other Investing Changes_cf` = "純その他の投資変動",  
+             `Net Investment Purchase And Sale_cf` = "投資の購入および売却の純額",  
+             `Sale Of Investment_cf` = "投資の売却",  
+             `Purchase Of Investment_cf` = "投資の購入",  
+             `Net Intangibles Purchase And Sale_cf` = "無形資産の購入および売却の純額",  
+             `Purchase Of Intangibles_cf` = "無形資産の購入",  
+             `Net PPE Purchase And Sale_cf` = "有形固定資産の購入および売却の純額",  
+             `Sale Of PPE_cf` = "有形固定資産の売却",  
+             `Purchase Of PPE_cf` = "有形固定資産の購入",  
+             `Operating Cash Flow_cf` = "営業キャッシュフロー",  
+             `Taxes Refund Paid_cf` = "税金還付支払い",  
+             `Interest Received Cfo_cf` = "CFOからの利息受取",  
+             `Interest Paid Cfo_cf` = "CFOへの利息支払い",  
+             `Change In Working Capital_cf` = "運転資本の変動",  
+             `Change In Other Current Assets_cf` = "その他の流動資産の変動",  
+             `Change In Payable_cf` = "支払債務の変動",  
+             `Change In Inventory_cf` = "在庫の変動",  
+             `Change In Receivables_cf` = "売掛金の変動",  
+             `Other Non Cash Items_cf` = "その他の非現金項目",  
+             `Depreciation And Amortization_cf` = "減価償却および償却",  
+             `Depreciation_cf` = "減価償却",  
+             `Gain Loss On Investment Securities_cf` = "投資証券の損益",  
+             `Gain Loss On Sale Of PPE_cf` = "有形固定資産の売却損益",  
+             `Net Income From Continuing Operations_cf` = "継続事業からの純利益",  
+             `Stock_Price` = "株価",  
+  )
+    
+
+PL_df <- df |> 
+  select(`Unnamed: 0_bs`, `Total Revenue_is`, `Operating Income_is`, `Net Income_is`)
+
+PL_df_lo <- PL_df |> 
+  pivot_longer(cols = -`Unnamed: 0_bs`,
+               names_to =  "利益",
+               values_to = "金額")
+
+#PL_df_loの列名変更、NA消去等
+PL_df_lo <- rename(PL_df_lo, Year=`Unnamed: 0_bs`)
+PL_df_lo <- PL_df_lo |> 
+  filter(!is.na(Year))
+
+PL_df_lo <- PL_df_lo |> 
+  mutate(Year = substr(Year,1,4))
+
+PL_df_lo <- PL_df_lo |> 
+  mutate(利益 = recode(利益,
+                     "Total Revenue_is" = "売上高",
+                     "Operating Income_is" = "営業利益",
+                     "Net Income_is" = "純利益"))
+
+PL_df_lo |> 
+  ggplot(aes(x = Year, y = 金額 , fill = 利益)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "売上高・営業利益・純利益の推移",
+       x = "年度",
+       y = "金額",
+       fill = "利益") +
+  theme_minimal()
+
+
+```

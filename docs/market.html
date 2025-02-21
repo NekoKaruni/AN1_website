@@ -1,0 +1,2452 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Karuni">
+<meta name="dcterms.date" content="2025-02-21">
+
+<title>📈 東証スタンダード市場分析 – AN1_website</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">AN1_website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">ホーム</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./market.html" aria-current="page"> 
+<span class="menu-text">市場分析</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">サイト概要</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/NekoKaruni/AN1.git"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">📈 東証スタンダード市場分析</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Karuni </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 21, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">##データ</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/1376_financial.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 5 Columns: 141
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl  (138): Treasury Shares Number_bs, Ordinary Shares Number_bs, Share Issu...
+date   (3): Unnamed: 0_bs, Unnamed: 0_is, Unnamed: 0_cf
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">##列名変更　表出力</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sub_missing</span>(<span class="at">columns =</span> <span class="fu">everything</span>(), <span class="at">missing_text =</span> <span class="st">""</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_label</span>(<span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Year"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Treasury Shares Number_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"自己株式の数"</span>,  </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Ordinary Shares Number_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式の数"</span>,  </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Share Issued_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"発行済み株式の数"</span>,  </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tangible Book Value_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形の帳簿価値"</span>,  </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Invested Capital_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資資本"</span>,  </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Working Capital_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"運転資本"</span>,  </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Tangible Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純有形資産"</span>,  </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock Equity_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式資本"</span>,  </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Capitalization_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総資本"</span>,  </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Equity Gross Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総資本（少数株主持分を含む）"</span>,  </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"少数株主持分"</span>,  </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Stockholders Equity_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"株主資本"</span>,  </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Treasury Stock_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"自己株式"</span>,  </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Retained Earnings_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"留保利益"</span>,  </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Additional Paid In Capital_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"追加払込資本"</span>,  </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Capital Stock_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"資本株式"</span>,  </span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式"</span>,  </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Liabilities Net Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総負債（少数株主持分を除く）"</span>,  </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Non Current Liabilities Net Minority Interest_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総非流動負債（少数株主持分を除く）"</span>,  </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Current Liabilities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非流動負債"</span>,  </span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Non Current Pension And Other Postretirement Benefit Plans_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非流動年金およびその他の退職後給付プラン"</span>,  </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Current Liabilities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"流動負債"</span>,  </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Current Liabilities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の流動負債"</span>,  </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Payables_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"支払債務"</span>,  </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Tax Payable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"支払うべき総税金"</span>,  </span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Accounts Payable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"買掛金"</span>,  </span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総資産"</span>,  </span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Non Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総非流動資産"</span>,  </span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非流動資産"</span>,  </span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Non Current Deferred Taxes Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非流動繰延税金資産"</span>,  </span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Investmentin Financial Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"金融資産への投資"</span>,  </span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Available For Sale Securities_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"売却可能証券"</span>,  </span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Goodwill And Other Intangible Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"のれんおよびその他の無形資産"</span>,  </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net PPE_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純有形固定資産"</span>,  </span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gross PPE_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総有形固定資産"</span>,  </span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Properties_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の不動産"</span>,  </span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Buildings And Improvements_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"建物およびその改良"</span>,  </span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Land And Improvements_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"土地およびその改良"</span>,  </span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Properties_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"不動産"</span>,  </span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"流動資産"</span>,  </span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Current Assets_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の流動資産"</span>,  </span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Inventory_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"在庫"</span>,  </span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Finished Goods_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"完成品"</span>,  </span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Receivables_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の受取債権"</span>,  </span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Accounts Receivable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"売掛金"</span>,  </span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gross Accounts Receivable_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総売掛金"</span>,  </span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cash Cash Equivalents And Short Term Investments_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金、現金同等物および短期投資"</span>,  </span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cash And Cash Equivalents_bs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金および現金同等物"</span>,  </span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">ticker</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"ティッカー"</span>,  </span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Unnamed: 0_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Year1"</span>,  </span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tax Effect Of Unusual Items_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"異常項目の税効果"</span>,  </span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tax Rate For Calcs_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"計算用税率"</span>,  </span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Normalized EBITDA_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"正規化EBITDA"</span>,  </span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Unusual Items_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"異常項目合計"</span>,  </span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Unusual Items Excluding Goodwill_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"のれんを除く異常項目合計"</span>,  </span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income From Continuing Operation Net Minority Interest_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業からの純利益（少数株主持分を除く）"</span>,  </span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Reconciled Depreciation_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"修正後の減価償却"</span>,  </span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Reconciled Cost Of Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"修正後の収益原価"</span>,  </span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">EBITDA_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"EBITDA"</span>,  </span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">EBIT_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"EBIT"</span>,  </span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Interest Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純利息収入"</span>,  </span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Expense_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"利息費用"</span>,  </span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"利息収入"</span>,  </span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Normalized Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"正規化収入"</span>,  </span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income From Continuing And Discontinued Operation_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業および中止事業からの純利益"</span>,  </span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Expenses_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総費用"</span>,  </span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Operating Income As Reported_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"報告された総営業利益"</span>,  </span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Diluted Average Shares_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"希薄化後平均株式数"</span>,  </span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Basic Average Shares_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"基本平均株式数"</span>,  </span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Diluted EPS_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"希薄化後EPS"</span>,  </span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Basic EPS_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"基本EPS"</span>,  </span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Diluted NI Availto Com Stockholders_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"希薄化後純利益（普通株主に利用可能）"</span>,  </span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income Common Stockholders_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純利益（普通株主）"</span>,  </span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Otherunder Preferred Stock Dividend_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"優先株配当のその他"</span>,  </span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純利益"</span>,  </span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Minority Interests_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"少数株主持分"</span>,  </span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income Including Noncontrolling Interests_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非支配持分を含む純利益"</span>,  </span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income Continuous Operations_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業からの純利益"</span>,  </span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Tax Provision_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"税金引当金"</span>,  </span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Pretax Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"税引前利益"</span>,  </span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Operating Income Expenses_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非営業収入費用"</span>,  </span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Special Income Charges_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"特別収入項目"</span>,  </span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Special Charges_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の特別費用"</span>,  </span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Write Off_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"費用処理"</span>,  </span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Non Operating Interest Income Expense_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純非営業利息収入費用"</span>,  </span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Expense Non Operating_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非営業利息費用"</span>,  </span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Income Non Operating_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"非営業利息収入"</span>,  </span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Income_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業利益"</span>,  </span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Expense_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業費用"</span>,  </span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gross Profit_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総利益"</span>,  </span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cost Of Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"収益原価"</span>,  </span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Total Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"総収益"</span>,  </span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Revenue_is</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業収益"</span>,  </span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Unnamed: 0_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Year2"</span>,  </span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Free Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"フリーキャッシュフロー"</span>,  </span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Repurchase Of Capital Stock_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"自己株式の再取得"</span>,  </span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Repayment Of Debt_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"借入金返済"</span>,  </span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Issuance Of Debt_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"借入金発行"</span>,  </span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Capital Expenditure_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"設備投資"</span>,  </span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">End Cash Position_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"期末現金残高"</span>,  </span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Cash Adjustment Outside Changein Cash_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金以外のその他の現金調整"</span>,  </span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Beginning Cash Position_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"期首現金残高"</span>,  </span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Effect Of Exchange Rate Changes_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"為替レート変動の影響"</span>,  </span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Changes In Cash_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金の変動"</span>,  </span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Financing Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"財務キャッシュフロー"</span>,  </span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Other Financing Charges_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純その他の財務費用"</span>,  </span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Cash Dividends Paid_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"現金配当支払い"</span>,  </span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock Dividend Paid_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式配当支払い"</span>,  </span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Common Stock Issuance_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式発行純額"</span>,  </span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Common Stock Payments_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"普通株式支払い"</span>,  </span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Issuance Payments Of Debt_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"借入金発行の純支払い"</span>,  </span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Short Term Debt Issuance_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"短期借入金発行の純額"</span>,  </span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Short Term Debt Payments_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"短期借入金支払い"</span>,  </span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Short Term Debt Issuance_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"短期借入金発行"</span>,  </span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Investing Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資キャッシュフロー"</span>,  </span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Other Investing Changes_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"純その他の投資変動"</span>,  </span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Investment Purchase And Sale_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資の購入および売却の純額"</span>,  </span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Sale Of Investment_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資の売却"</span>,  </span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Purchase Of Investment_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資の購入"</span>,  </span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Intangibles Purchase And Sale_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"無形資産の購入および売却の純額"</span>,  </span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Purchase Of Intangibles_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"無形資産の購入"</span>,  </span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net PPE Purchase And Sale_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の購入および売却の純額"</span>,  </span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Sale Of PPE_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の売却"</span>,  </span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Purchase Of PPE_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の購入"</span>,  </span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Operating Cash Flow_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"営業キャッシュフロー"</span>,  </span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Taxes Refund Paid_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"税金還付支払い"</span>,  </span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Received Cfo_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"CFOからの利息受取"</span>,  </span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Interest Paid Cfo_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"CFOへの利息支払い"</span>,  </span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Working Capital_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"運転資本の変動"</span>,  </span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Other Current Assets_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の流動資産の変動"</span>,  </span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Payable_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"支払債務の変動"</span>,  </span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Inventory_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"在庫の変動"</span>,  </span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Change In Receivables_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"売掛金の変動"</span>,  </span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Other Non Cash Items_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"その他の非現金項目"</span>,  </span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Depreciation And Amortization_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"減価償却および償却"</span>,  </span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Depreciation_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"減価償却"</span>,  </span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gain Loss On Investment Securities_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"投資証券の損益"</span>,  </span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Gain Loss On Sale Of PPE_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"有形固定資産の売却損益"</span>,  </span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Net Income From Continuing Operations_cf</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"継続事業からの純利益"</span>,  </span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>             <span class="st">`</span><span class="at">Stock_Price</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"株価"</span>,  </span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="famutivorc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#famutivorc table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#famutivorc thead, #famutivorc tbody, #famutivorc tfoot, #famutivorc tr, #famutivorc td, #famutivorc th {
+  border-style: none;
+}
+
+#famutivorc p {
+  margin: 0;
+  padding: 0;
+}
+
+#famutivorc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#famutivorc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#famutivorc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#famutivorc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#famutivorc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#famutivorc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#famutivorc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#famutivorc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#famutivorc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#famutivorc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#famutivorc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#famutivorc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#famutivorc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#famutivorc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#famutivorc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#famutivorc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#famutivorc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#famutivorc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#famutivorc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#famutivorc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#famutivorc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#famutivorc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#famutivorc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#famutivorc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#famutivorc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#famutivorc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#famutivorc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#famutivorc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#famutivorc .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#famutivorc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#famutivorc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#famutivorc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#famutivorc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#famutivorc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#famutivorc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#famutivorc .gt_left {
+  text-align: left;
+}
+
+#famutivorc .gt_center {
+  text-align: center;
+}
+
+#famutivorc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#famutivorc .gt_font_normal {
+  font-weight: normal;
+}
+
+#famutivorc .gt_font_bold {
+  font-weight: bold;
+}
+
+#famutivorc .gt_font_italic {
+  font-style: italic;
+}
+
+#famutivorc .gt_super {
+  font-size: 65%;
+}
+
+#famutivorc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#famutivorc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#famutivorc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#famutivorc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#famutivorc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#famutivorc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#famutivorc .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#famutivorc .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#famutivorc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th id="Unnamed:-0_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Year</th>
+<th id="Treasury-Shares-Number_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">自己株式の数</th>
+<th id="Ordinary-Shares-Number_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">普通株式の数</th>
+<th id="Share-Issued_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">発行済み株式の数</th>
+<th id="Tangible-Book-Value_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">有形の帳簿価値</th>
+<th id="Invested-Capital_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">投資資本</th>
+<th id="Working-Capital_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">運転資本</th>
+<th id="Net-Tangible-Assets_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">純有形資産</th>
+<th id="Common-Stock-Equity_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">普通株式資本</th>
+<th id="Total-Capitalization_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">総資本</th>
+<th id="Total-Equity-Gross-Minority-Interest_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">総資本（少数株主持分を含む）</th>
+<th id="Minority-Interest_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">少数株主持分</th>
+<th id="Stockholders-Equity_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">株主資本</th>
+<th id="Treasury-Stock_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">自己株式</th>
+<th id="Retained-Earnings_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">留保利益</th>
+<th id="Additional-Paid-In-Capital_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">追加払込資本</th>
+<th id="Capital-Stock_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">資本株式</th>
+<th id="Common-Stock_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">普通株式</th>
+<th id="Total-Liabilities-Net-Minority-Interest_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">総負債（少数株主持分を除く）</th>
+<th id="Total-Non-Current-Liabilities-Net-Minority-Interest_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">総非流動負債（少数株主持分を除く）</th>
+<th id="Other-Non-Current-Liabilities_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">その他の非流動負債</th>
+<th id="Non-Current-Pension-And-Other-Postretirement-Benefit-Plans_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">非流動年金およびその他の退職後給付プラン</th>
+<th id="Current-Liabilities_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">流動負債</th>
+<th id="Other-Current-Liabilities_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">その他の流動負債</th>
+<th id="Payables_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">支払債務</th>
+<th id="Total-Tax-Payable_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">支払うべき総税金</th>
+<th id="Accounts-Payable_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">買掛金</th>
+<th id="Total-Assets_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">総資産</th>
+<th id="Total-Non-Current-Assets_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">総非流動資産</th>
+<th id="Other-Non-Current-Assets_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">その他の非流動資産</th>
+<th id="Non-Current-Deferred-Taxes-Assets_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">非流動繰延税金資産</th>
+<th id="Investmentin-Financial-Assets_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">金融資産への投資</th>
+<th id="Available-For-Sale-Securities_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">売却可能証券</th>
+<th id="Goodwill-And-Other-Intangible-Assets_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">のれんおよびその他の無形資産</th>
+<th id="Net-PPE_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">純有形固定資産</th>
+<th id="Gross-PPE_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">総有形固定資産</th>
+<th id="Other-Properties_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">その他の不動産</th>
+<th id="Buildings-And-Improvements_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">建物およびその改良</th>
+<th id="Land-And-Improvements_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">土地およびその改良</th>
+<th id="Properties_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">不動産</th>
+<th id="Current-Assets_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">流動資産</th>
+<th id="Other-Current-Assets_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">その他の流動資産</th>
+<th id="Inventory_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">在庫</th>
+<th id="Finished-Goods_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">完成品</th>
+<th id="Other-Receivables_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">その他の受取債権</th>
+<th id="Accounts-Receivable_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">売掛金</th>
+<th id="Gross-Accounts-Receivable_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">総売掛金</th>
+<th id="Cash-Cash-Equivalents-And-Short-Term-Investments_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">現金、現金同等物および短期投資</th>
+<th id="Cash-And-Cash-Equivalents_bs" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">現金および現金同等物</th>
+<th id="ticker" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ティッカー</th>
+<th id="Unnamed:-0_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Year1</th>
+<th id="Tax-Effect-Of-Unusual-Items_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">異常項目の税効果</th>
+<th id="Tax-Rate-For-Calcs_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">計算用税率</th>
+<th id="Normalized-EBITDA_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">正規化EBITDA</th>
+<th id="Total-Unusual-Items_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">異常項目合計</th>
+<th id="Total-Unusual-Items-Excluding-Goodwill_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">のれんを除く異常項目合計</th>
+<th id="Net-Income-From-Continuing-Operation-Net-Minority-Interest_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">継続事業からの純利益（少数株主持分を除く）</th>
+<th id="Reconciled-Depreciation_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">修正後の減価償却</th>
+<th id="Reconciled-Cost-Of-Revenue_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">修正後の収益原価</th>
+<th id="EBITDA_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">EBITDA</th>
+<th id="EBIT_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">EBIT</th>
+<th id="Net-Interest-Income_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">純利息収入</th>
+<th id="Interest-Expense_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">利息費用</th>
+<th id="Interest-Income_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">利息収入</th>
+<th id="Normalized-Income_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">正規化収入</th>
+<th id="Net-Income-From-Continuing-And-Discontinued-Operation_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">継続事業および中止事業からの純利益</th>
+<th id="Total-Expenses_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">総費用</th>
+<th id="Total-Operating-Income-As-Reported_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">報告された総営業利益</th>
+<th id="Diluted-Average-Shares_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">希薄化後平均株式数</th>
+<th id="Basic-Average-Shares_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">基本平均株式数</th>
+<th id="Diluted-EPS_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">希薄化後EPS</th>
+<th id="Basic-EPS_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">基本EPS</th>
+<th id="Diluted-NI-Availto-Com-Stockholders_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">希薄化後純利益（普通株主に利用可能）</th>
+<th id="Net-Income-Common-Stockholders_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">純利益（普通株主）</th>
+<th id="Otherunder-Preferred-Stock-Dividend_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">優先株配当のその他</th>
+<th id="Net-Income_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">純利益</th>
+<th id="Minority-Interests_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">少数株主持分</th>
+<th id="Net-Income-Including-Noncontrolling-Interests_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">非支配持分を含む純利益</th>
+<th id="Net-Income-Continuous-Operations_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">継続事業からの純利益</th>
+<th id="Tax-Provision_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">税金引当金</th>
+<th id="Pretax-Income_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">税引前利益</th>
+<th id="Other-Non-Operating-Income-Expenses_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">その他の非営業収入費用</th>
+<th id="Special-Income-Charges_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">特別収入項目</th>
+<th id="Other-Special-Charges_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">その他の特別費用</th>
+<th id="Write-Off_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">費用処理</th>
+<th id="Net-Non-Operating-Interest-Income-Expense_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">純非営業利息収入費用</th>
+<th id="Interest-Expense-Non-Operating_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">非営業利息費用</th>
+<th id="Interest-Income-Non-Operating_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">非営業利息収入</th>
+<th id="Operating-Income_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">営業利益</th>
+<th id="Operating-Expense_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">営業費用</th>
+<th id="Gross-Profit_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">総利益</th>
+<th id="Cost-Of-Revenue_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">収益原価</th>
+<th id="Total-Revenue_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">総収益</th>
+<th id="Operating-Revenue_is" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">営業収益</th>
+<th id="Unnamed:-0_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Year2</th>
+<th id="Free-Cash-Flow_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">フリーキャッシュフロー</th>
+<th id="Repurchase-Of-Capital-Stock_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">自己株式の再取得</th>
+<th id="Repayment-Of-Debt_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">借入金返済</th>
+<th id="Issuance-Of-Debt_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">借入金発行</th>
+<th id="Capital-Expenditure_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">設備投資</th>
+<th id="End-Cash-Position_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">期末現金残高</th>
+<th id="Other-Cash-Adjustment-Outside-Changein-Cash_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">現金以外のその他の現金調整</th>
+<th id="Beginning-Cash-Position_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">期首現金残高</th>
+<th id="Effect-Of-Exchange-Rate-Changes_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">為替レート変動の影響</th>
+<th id="Changes-In-Cash_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">現金の変動</th>
+<th id="Financing-Cash-Flow_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">財務キャッシュフロー</th>
+<th id="Net-Other-Financing-Charges_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">純その他の財務費用</th>
+<th id="Cash-Dividends-Paid_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">現金配当支払い</th>
+<th id="Common-Stock-Dividend-Paid_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">普通株式配当支払い</th>
+<th id="Net-Common-Stock-Issuance_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">普通株式発行純額</th>
+<th id="Common-Stock-Payments_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">普通株式支払い</th>
+<th id="Net-Issuance-Payments-Of-Debt_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">借入金発行の純支払い</th>
+<th id="Net-Short-Term-Debt-Issuance_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">短期借入金発行の純額</th>
+<th id="Short-Term-Debt-Payments_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">短期借入金支払い</th>
+<th id="Short-Term-Debt-Issuance_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">短期借入金発行</th>
+<th id="Investing-Cash-Flow_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">投資キャッシュフロー</th>
+<th id="Net-Other-Investing-Changes_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">純その他の投資変動</th>
+<th id="Net-Investment-Purchase-And-Sale_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">投資の購入および売却の純額</th>
+<th id="Sale-Of-Investment_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">投資の売却</th>
+<th id="Purchase-Of-Investment_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">投資の購入</th>
+<th id="Net-Intangibles-Purchase-And-Sale_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">無形資産の購入および売却の純額</th>
+<th id="Purchase-Of-Intangibles_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">無形資産の購入</th>
+<th id="Net-PPE-Purchase-And-Sale_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">有形固定資産の購入および売却の純額</th>
+<th id="Sale-Of-PPE_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">有形固定資産の売却</th>
+<th id="Purchase-Of-PPE_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">有形固定資産の購入</th>
+<th id="Operating-Cash-Flow_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">営業キャッシュフロー</th>
+<th id="Taxes-Refund-Paid_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">税金還付支払い</th>
+<th id="Interest-Received-Cfo_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">CFOからの利息受取</th>
+<th id="Interest-Paid-Cfo_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">CFOへの利息支払い</th>
+<th id="Change-In-Working-Capital_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">運転資本の変動</th>
+<th id="Change-In-Other-Current-Assets_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">その他の流動資産の変動</th>
+<th id="Change-In-Payable_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">支払債務の変動</th>
+<th id="Change-In-Inventory_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">在庫の変動</th>
+<th id="Change-In-Receivables_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">売掛金の変動</th>
+<th id="Other-Non-Cash-Items_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">その他の非現金項目</th>
+<th id="Depreciation-And-Amortization_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">減価償却および償却</th>
+<th id="Depreciation_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">減価償却</th>
+<th id="Gain-Loss-On-Investment-Securities_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">投資証券の損益</th>
+<th id="Gain-Loss-On-Sale-Of-PPE_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">有形固定資産の売却損益</th>
+<th id="Net-Income-From-Continuing-Operations_cf" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">継続事業からの純利益</th>
+<th id="Stock_Price" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">株価</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="Unnamed: 0_bs">2024-05-31</td>
+<td class="gt_row gt_right" headers="Treasury Shares Number_bs">472890</td>
+<td class="gt_row gt_right" headers="Ordinary Shares Number_bs">11299736</td>
+<td class="gt_row gt_right" headers="Share Issued_bs">11772626</td>
+<td class="gt_row gt_right" headers="Tangible Book Value_bs">23832590000</td>
+<td class="gt_row gt_right" headers="Invested Capital_bs">24441593000</td>
+<td class="gt_row gt_right" headers="Working Capital_bs">15313707000</td>
+<td class="gt_row gt_right" headers="Net Tangible Assets_bs">23832590000</td>
+<td class="gt_row gt_right" headers="Common Stock Equity_bs">24441593000</td>
+<td class="gt_row gt_right" headers="Total Capitalization_bs">24441593000</td>
+<td class="gt_row gt_right" headers="Total Equity Gross Minority Interest_bs">24441869000</td>
+<td class="gt_row gt_right" headers="Minority Interest_bs">276000</td>
+<td class="gt_row gt_right" headers="Stockholders Equity_bs">24441593000</td>
+<td class="gt_row gt_right" headers="Treasury Stock_bs">693622000</td>
+<td class="gt_row gt_right" headers="Retained Earnings_bs">20541739000</td>
+<td class="gt_row gt_right" headers="Additional Paid In Capital_bs">1765224000</td>
+<td class="gt_row gt_right" headers="Capital Stock_bs">1491267000</td>
+<td class="gt_row gt_right" headers="Common Stock_bs">1491267000</td>
+<td class="gt_row gt_right" headers="Total Liabilities Net Minority Interest_bs">24240653000</td>
+<td class="gt_row gt_right" headers="Total Non Current Liabilities Net Minority Interest_bs">1142511000</td>
+<td class="gt_row gt_right" headers="Other Non Current Liabilities_bs">310301000</td>
+<td class="gt_row gt_right" headers="Non Current Pension And Other Postretirement Benefit Plans_bs">832210000</td>
+<td class="gt_row gt_right" headers="Current Liabilities_bs">23098142000</td>
+<td class="gt_row gt_right" headers="Other Current Liabilities_bs">1905511000</td>
+<td class="gt_row gt_right" headers="Payables_bs">21192631000</td>
+<td class="gt_row gt_right" headers="Total Tax Payable_bs">121142000</td>
+<td class="gt_row gt_right" headers="Accounts Payable_bs">21071489000</td>
+<td class="gt_row gt_right" headers="Total Assets_bs">48682522000</td>
+<td class="gt_row gt_right" headers="Total Non Current Assets_bs">10270671000</td>
+<td class="gt_row gt_right" headers="Other Non Current Assets_bs">480658000</td>
+<td class="gt_row gt_right" headers="Non Current Deferred Taxes Assets_bs">13783000</td>
+<td class="gt_row gt_right" headers="Investmentin Financial Assets_bs">2077934000</td>
+<td class="gt_row gt_right" headers="Available For Sale Securities_bs">2077934000</td>
+<td class="gt_row gt_right" headers="Goodwill And Other Intangible Assets_bs">609003000</td>
+<td class="gt_row gt_right" headers="Net PPE_bs">7089293000</td>
+<td class="gt_row gt_right" headers="Gross PPE_bs">7089292000</td>
+<td class="gt_row gt_right" headers="Other Properties_bs">398055000</td>
+<td class="gt_row gt_right" headers="Buildings And Improvements_bs">2459650000</td>
+<td class="gt_row gt_right" headers="Land And Improvements_bs">4231587000</td>
+<td class="gt_row gt_right" headers="Properties_bs">0</td>
+<td class="gt_row gt_right" headers="Current Assets_bs">38411849000</td>
+<td class="gt_row gt_right" headers="Other Current Assets_bs">2124032000</td>
+<td class="gt_row gt_right" headers="Inventory_bs">10418295000</td>
+<td class="gt_row gt_right" headers="Finished Goods_bs">10418295000</td>
+<td class="gt_row gt_right" headers="Other Receivables_bs">2199467000</td>
+<td class="gt_row gt_right" headers="Accounts Receivable_bs">20070658000</td>
+<td class="gt_row gt_right" headers="Gross Accounts Receivable_bs">20070658000</td>
+<td class="gt_row gt_right" headers="Cash Cash Equivalents And Short Term Investments_bs">3599397000</td>
+<td class="gt_row gt_right" headers="Cash And Cash Equivalents_bs">3599397000</td>
+<td class="gt_row gt_right" headers="ticker">1376</td>
+<td class="gt_row gt_right" headers="Unnamed: 0_is">2024-05-31</td>
+<td class="gt_row gt_right" headers="Tax Effect Of Unusual Items_is">-13881753</td>
+<td class="gt_row gt_right" headers="Tax Rate For Calcs_is">0.219</td>
+<td class="gt_row gt_right" headers="Normalized EBITDA_is">2097069000</td>
+<td class="gt_row gt_right" headers="Total Unusual Items_is">-63387000</td>
+<td class="gt_row gt_right" headers="Total Unusual Items Excluding Goodwill_is">-63387000</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing Operation Net Minority Interest_is">1177699000</td>
+<td class="gt_row gt_right" headers="Reconciled Depreciation_is">512117000</td>
+<td class="gt_row gt_right" headers="Reconciled Cost Of Revenue_is">52142060000</td>
+<td class="gt_row gt_right" headers="EBITDA_is">2033682000</td>
+<td class="gt_row gt_right" headers="EBIT_is">1521565000</td>
+<td class="gt_row gt_right" headers="Net Interest Income_is">-10078000</td>
+<td class="gt_row gt_right" headers="Interest Expense_is">14479000</td>
+<td class="gt_row gt_right" headers="Interest Income_is">4401000</td>
+<td class="gt_row gt_right" headers="Normalized Income_is">1227204247</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing And Discontinued Operation_is">1177699000</td>
+<td class="gt_row gt_right" headers="Total Expenses_is">60119938000</td>
+<td class="gt_row gt_right" headers="Total Operating Income As Reported_is">1478908000</td>
+<td class="gt_row gt_right" headers="Diluted Average Shares_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Basic Average Shares_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Diluted EPS_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Basic EPS_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Diluted NI Availto Com Stockholders_is">1177699000</td>
+<td class="gt_row gt_right" headers="Net Income Common Stockholders_is">1177699000</td>
+<td class="gt_row gt_right" headers="Otherunder Preferred Stock Dividend_is">0</td>
+<td class="gt_row gt_right" headers="Net Income_is">1177699000</td>
+<td class="gt_row gt_right" headers="Minority Interests_is">-32000</td>
+<td class="gt_row gt_right" headers="Net Income Including Noncontrolling Interests_is">1177732000</td>
+<td class="gt_row gt_right" headers="Net Income Continuous Operations_is">1177732000</td>
+<td class="gt_row gt_right" headers="Tax Provision_is">329354000</td>
+<td class="gt_row gt_right" headers="Pretax Income_is">1507086000</td>
+<td class="gt_row gt_right" headers="Other Non Operating Income Expenses_is">89418000</td>
+<td class="gt_row gt_right" headers="Special Income Charges_is">-63387000</td>
+<td class="gt_row gt_right" headers="Other Special Charges_is">1593000</td>
+<td class="gt_row gt_right" headers="Write Off_is">61794000</td>
+<td class="gt_row gt_right" headers="Net Non Operating Interest Income Expense_is">-10078000</td>
+<td class="gt_row gt_right" headers="Interest Expense Non Operating_is">14479000</td>
+<td class="gt_row gt_right" headers="Interest Income Non Operating_is">4401000</td>
+<td class="gt_row gt_right" headers="Operating Income_is">1478909000</td>
+<td class="gt_row gt_right" headers="Operating Expense_is">7977878000</td>
+<td class="gt_row gt_right" headers="Gross Profit_is">9456787000</td>
+<td class="gt_row gt_right" headers="Cost Of Revenue_is">52142060000</td>
+<td class="gt_row gt_right" headers="Total Revenue_is">61598847000</td>
+<td class="gt_row gt_right" headers="Operating Revenue_is">61598847000</td>
+<td class="gt_row gt_right" headers="Unnamed: 0_cf">2024-05-31</td>
+<td class="gt_row gt_right" headers="Free Cash Flow_cf">1555990000</td>
+<td class="gt_row gt_right" headers="Repurchase Of Capital Stock_cf">-216564000</td>
+<td class="gt_row gt_right" headers="Repayment Of Debt_cf">-3.60e+09</td>
+<td class="gt_row gt_right" headers="Issuance Of Debt_cf">3.60e+09</td>
+<td class="gt_row gt_right" headers="Capital Expenditure_cf">-679620000</td>
+<td class="gt_row gt_right" headers="End Cash Position_cf">3265897000</td>
+<td class="gt_row gt_right" headers="Other Cash Adjustment Outside Changein Cash_cf">1000</td>
+<td class="gt_row gt_right" headers="Beginning Cash Position_cf">2114685000</td>
+<td class="gt_row gt_right" headers="Effect Of Exchange Rate Changes_cf">16004000</td>
+<td class="gt_row gt_right" headers="Changes In Cash_cf">1135207000</td>
+<td class="gt_row gt_right" headers="Financing Cash Flow_cf">-614308000</td>
+<td class="gt_row gt_right" headers="Net Other Financing Charges_cf">-41136000</td>
+<td class="gt_row gt_right" headers="Cash Dividends Paid_cf">-356608000</td>
+<td class="gt_row gt_right" headers="Common Stock Dividend Paid_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Common Stock Issuance_cf">-216564000</td>
+<td class="gt_row gt_right" headers="Common Stock Payments_cf">-216564000</td>
+<td class="gt_row gt_right" headers="Net Issuance Payments Of Debt_cf">0</td>
+<td class="gt_row gt_right" headers="Net Short Term Debt Issuance_cf">0</td>
+<td class="gt_row gt_right" headers="Short Term Debt Payments_cf">-3.60e+09</td>
+<td class="gt_row gt_right" headers="Short Term Debt Issuance_cf">3.60e+09</td>
+<td class="gt_row gt_right" headers="Investing Cash Flow_cf">-486095000</td>
+<td class="gt_row gt_right" headers="Net Other Investing Changes_cf">4266000</td>
+<td class="gt_row gt_right" headers="Net Investment Purchase And Sale_cf">189259000</td>
+<td class="gt_row gt_right" headers="Sale Of Investment_cf">2.00e+08</td>
+<td class="gt_row gt_right" headers="Purchase Of Investment_cf">-10741000</td>
+<td class="gt_row gt_right" headers="Net Intangibles Purchase And Sale_cf">-102485000</td>
+<td class="gt_row gt_right" headers="Purchase Of Intangibles_cf">-102485000</td>
+<td class="gt_row gt_right" headers="Net PPE Purchase And Sale_cf">-577135000</td>
+<td class="gt_row gt_right" headers="Sale Of PPE_cf">0</td>
+<td class="gt_row gt_right" headers="Purchase Of PPE_cf">-577135000</td>
+<td class="gt_row gt_right" headers="Operating Cash Flow_cf">2235610000</td>
+<td class="gt_row gt_right" headers="Taxes Refund Paid_cf">-496519000</td>
+<td class="gt_row gt_right" headers="Interest Received Cfo_cf">62562000</td>
+<td class="gt_row gt_right" headers="Interest Paid Cfo_cf">-14343000</td>
+<td class="gt_row gt_right" headers="Change In Working Capital_cf">710698000</td>
+<td class="gt_row gt_right" headers="Change In Other Current Assets_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Change In Payable_cf">1536038000</td>
+<td class="gt_row gt_right" headers="Change In Inventory_cf">-175924000</td>
+<td class="gt_row gt_right" headers="Change In Receivables_cf">-656126000</td>
+<td class="gt_row gt_right" headers="Other Non Cash Items_cf">-109376000</td>
+<td class="gt_row gt_right" headers="Depreciation And Amortization_cf">512117000</td>
+<td class="gt_row gt_right" headers="Depreciation_cf">512117000</td>
+<td class="gt_row gt_right" headers="Gain Loss On Investment Securities_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Gain Loss On Sale Of PPE_cf">1593000</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing Operations_cf">1507086000</td>
+<td class="gt_row gt_right" headers="Stock_Price">1401.721</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Unnamed: 0_bs">2023-05-31</td>
+<td class="gt_row gt_right" headers="Treasury Shares Number_bs">322818</td>
+<td class="gt_row gt_right" headers="Ordinary Shares Number_bs">11449808</td>
+<td class="gt_row gt_right" headers="Share Issued_bs">11772626</td>
+<td class="gt_row gt_right" headers="Tangible Book Value_bs">22792790000</td>
+<td class="gt_row gt_right" headers="Invested Capital_bs">23513570000</td>
+<td class="gt_row gt_right" headers="Working Capital_bs">14653207000</td>
+<td class="gt_row gt_right" headers="Net Tangible Assets_bs">22792790000</td>
+<td class="gt_row gt_right" headers="Common Stock Equity_bs">23513570000</td>
+<td class="gt_row gt_right" headers="Total Capitalization_bs">23513570000</td>
+<td class="gt_row gt_right" headers="Total Equity Gross Minority Interest_bs">23513832000</td>
+<td class="gt_row gt_right" headers="Minority Interest_bs">262000</td>
+<td class="gt_row gt_right" headers="Stockholders Equity_bs">23513570000</td>
+<td class="gt_row gt_right" headers="Treasury Stock_bs">477057000</td>
+<td class="gt_row gt_right" headers="Retained Earnings_bs">19721047000</td>
+<td class="gt_row gt_right" headers="Additional Paid In Capital_bs">1765224000</td>
+<td class="gt_row gt_right" headers="Capital Stock_bs">1491267000</td>
+<td class="gt_row gt_right" headers="Common Stock_bs">1491267000</td>
+<td class="gt_row gt_right" headers="Total Liabilities Net Minority Interest_bs">23194043000</td>
+<td class="gt_row gt_right" headers="Total Non Current Liabilities Net Minority Interest_bs">1626296000</td>
+<td class="gt_row gt_right" headers="Other Non Current Liabilities_bs">295494000</td>
+<td class="gt_row gt_right" headers="Non Current Pension And Other Postretirement Benefit Plans_bs">1330802000</td>
+<td class="gt_row gt_right" headers="Current Liabilities_bs">21567747000</td>
+<td class="gt_row gt_right" headers="Other Current Liabilities_bs">1813532000</td>
+<td class="gt_row gt_right" headers="Payables_bs">19754215000</td>
+<td class="gt_row gt_right" headers="Total Tax Payable_bs">306191000</td>
+<td class="gt_row gt_right" headers="Accounts Payable_bs">19448024000</td>
+<td class="gt_row gt_right" headers="Total Assets_bs">46707875000</td>
+<td class="gt_row gt_right" headers="Total Non Current Assets_bs">10486918000</td>
+<td class="gt_row gt_right" headers="Other Non Current Assets_bs">489147000</td>
+<td class="gt_row gt_right" headers="Non Current Deferred Taxes Assets_bs">131194000</td>
+<td class="gt_row gt_right" headers="Investmentin Financial Assets_bs">2360797000</td>
+<td class="gt_row gt_right" headers="Available For Sale Securities_bs">2360797000</td>
+<td class="gt_row gt_right" headers="Goodwill And Other Intangible Assets_bs">720780000</td>
+<td class="gt_row gt_right" headers="Net PPE_bs">6785000000</td>
+<td class="gt_row gt_right" headers="Gross PPE_bs">6784999000</td>
+<td class="gt_row gt_right" headers="Other Properties_bs">356347000</td>
+<td class="gt_row gt_right" headers="Buildings And Improvements_bs">2429592000</td>
+<td class="gt_row gt_right" headers="Land And Improvements_bs">3999060000</td>
+<td class="gt_row gt_right" headers="Properties_bs">0</td>
+<td class="gt_row gt_right" headers="Current Assets_bs">36220954000</td>
+<td class="gt_row gt_right" headers="Other Current Assets_bs">638830000</td>
+<td class="gt_row gt_right" headers="Inventory_bs">10231778000</td>
+<td class="gt_row gt_right" headers="Finished Goods_bs">10231778000</td>
+<td class="gt_row gt_right" headers="Other Receivables_bs">2182034000</td>
+<td class="gt_row gt_right" headers="Accounts Receivable_bs">20720127000</td>
+<td class="gt_row gt_right" headers="Gross Accounts Receivable_bs">20720127000</td>
+<td class="gt_row gt_right" headers="Cash Cash Equivalents And Short Term Investments_bs">2448185000</td>
+<td class="gt_row gt_right" headers="Cash And Cash Equivalents_bs">2448185000</td>
+<td class="gt_row gt_right" headers="ticker">1376</td>
+<td class="gt_row gt_right" headers="Unnamed: 0_is">2023-05-31</td>
+<td class="gt_row gt_right" headers="Tax Effect Of Unusual Items_is">-4335040</td>
+<td class="gt_row gt_right" headers="Tax Rate For Calcs_is">0.248</td>
+<td class="gt_row gt_right" headers="Normalized EBITDA_is">2380528000</td>
+<td class="gt_row gt_right" headers="Total Unusual Items_is">-17480000</td>
+<td class="gt_row gt_right" headers="Total Unusual Items Excluding Goodwill_is">-17480000</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing Operation Net Minority Interest_is">1426338000</td>
+<td class="gt_row gt_right" headers="Reconciled Depreciation_is">454596000</td>
+<td class="gt_row gt_right" headers="Reconciled Cost Of Revenue_is">52671747000</td>
+<td class="gt_row gt_right" headers="EBITDA_is">2363048000</td>
+<td class="gt_row gt_right" headers="EBIT_is">1908452000</td>
+<td class="gt_row gt_right" headers="Net Interest Income_is">-8196000</td>
+<td class="gt_row gt_right" headers="Interest Expense_is">12615000</td>
+<td class="gt_row gt_right" headers="Interest Income_is">4419000</td>
+<td class="gt_row gt_right" headers="Normalized Income_is">1439482960</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing And Discontinued Operation_is">1426338000</td>
+<td class="gt_row gt_right" headers="Total Expenses_is">60393779000</td>
+<td class="gt_row gt_right" headers="Total Operating Income As Reported_is">1785397000</td>
+<td class="gt_row gt_right" headers="Diluted Average Shares_is">11536857</td>
+<td class="gt_row gt_right" headers="Basic Average Shares_is">11536857</td>
+<td class="gt_row gt_right" headers="Diluted EPS_is">123.63</td>
+<td class="gt_row gt_right" headers="Basic EPS_is">123.63</td>
+<td class="gt_row gt_right" headers="Diluted NI Availto Com Stockholders_is">1426338000</td>
+<td class="gt_row gt_right" headers="Net Income Common Stockholders_is">1426338000</td>
+<td class="gt_row gt_right" headers="Otherunder Preferred Stock Dividend_is">0</td>
+<td class="gt_row gt_right" headers="Net Income_is">1426338000</td>
+<td class="gt_row gt_right" headers="Minority Interests_is">-37000</td>
+<td class="gt_row gt_right" headers="Net Income Including Noncontrolling Interests_is">1426376000</td>
+<td class="gt_row gt_right" headers="Net Income Continuous Operations_is">1426376000</td>
+<td class="gt_row gt_right" headers="Tax Provision_is">469461000</td>
+<td class="gt_row gt_right" headers="Pretax Income_is">1895837000</td>
+<td class="gt_row gt_right" headers="Other Non Operating Income Expenses_is">96247000</td>
+<td class="gt_row gt_right" headers="Special Income Charges_is">-13349000</td>
+<td class="gt_row gt_right" headers="Other Special Charges_is">13349000</td>
+<td class="gt_row gt_right" headers="Write Off_is">0</td>
+<td class="gt_row gt_right" headers="Net Non Operating Interest Income Expense_is">-8196000</td>
+<td class="gt_row gt_right" headers="Interest Expense Non Operating_is">12615000</td>
+<td class="gt_row gt_right" headers="Interest Income Non Operating_is">4419000</td>
+<td class="gt_row gt_right" headers="Operating Income_is">1785397000</td>
+<td class="gt_row gt_right" headers="Operating Expense_is">7722032000</td>
+<td class="gt_row gt_right" headers="Gross Profit_is">9507429000</td>
+<td class="gt_row gt_right" headers="Cost Of Revenue_is">52671747000</td>
+<td class="gt_row gt_right" headers="Total Revenue_is">62179177000</td>
+<td class="gt_row gt_right" headers="Operating Revenue_is">62179177000</td>
+<td class="gt_row gt_right" headers="Unnamed: 0_cf">2023-05-31</td>
+<td class="gt_row gt_right" headers="Free Cash Flow_cf">-1992916000</td>
+<td class="gt_row gt_right" headers="Repurchase Of Capital Stock_cf">-200136000</td>
+<td class="gt_row gt_right" headers="Repayment Of Debt_cf">-3.80e+09</td>
+<td class="gt_row gt_right" headers="Issuance Of Debt_cf">3.80e+09</td>
+<td class="gt_row gt_right" headers="Capital Expenditure_cf">-402311000</td>
+<td class="gt_row gt_right" headers="End Cash Position_cf">2114685000</td>
+<td class="gt_row gt_right" headers="Other Cash Adjustment Outside Changein Cash_cf">-1000</td>
+<td class="gt_row gt_right" headers="Beginning Cash Position_cf">4776488000</td>
+<td class="gt_row gt_right" headers="Effect Of Exchange Rate Changes_cf">7497000</td>
+<td class="gt_row gt_right" headers="Changes In Cash_cf">-2669299000</td>
+<td class="gt_row gt_right" headers="Financing Cash Flow_cf">-579189000</td>
+<td class="gt_row gt_right" headers="Net Other Financing Charges_cf">-41926000</td>
+<td class="gt_row gt_right" headers="Cash Dividends Paid_cf">-337127000</td>
+<td class="gt_row gt_right" headers="Common Stock Dividend Paid_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Common Stock Issuance_cf">-200136000</td>
+<td class="gt_row gt_right" headers="Common Stock Payments_cf">-200136000</td>
+<td class="gt_row gt_right" headers="Net Issuance Payments Of Debt_cf">0</td>
+<td class="gt_row gt_right" headers="Net Short Term Debt Issuance_cf">0</td>
+<td class="gt_row gt_right" headers="Short Term Debt Payments_cf">-3.80e+09</td>
+<td class="gt_row gt_right" headers="Short Term Debt Issuance_cf">3.80e+09</td>
+<td class="gt_row gt_right" headers="Investing Cash Flow_cf">-499505000</td>
+<td class="gt_row gt_right" headers="Net Other Investing Changes_cf">-44348000</td>
+<td class="gt_row gt_right" headers="Net Investment Purchase And Sale_cf">-58596000</td>
+<td class="gt_row gt_right" headers="Sale Of Investment_cf">0.00e+00</td>
+<td class="gt_row gt_right" headers="Purchase Of Investment_cf">-58596000</td>
+<td class="gt_row gt_right" headers="Net Intangibles Purchase And Sale_cf">-33743000</td>
+<td class="gt_row gt_right" headers="Purchase Of Intangibles_cf">-33743000</td>
+<td class="gt_row gt_right" headers="Net PPE Purchase And Sale_cf">-362818000</td>
+<td class="gt_row gt_right" headers="Sale Of PPE_cf">5750000</td>
+<td class="gt_row gt_right" headers="Purchase Of PPE_cf">-368568000</td>
+<td class="gt_row gt_right" headers="Operating Cash Flow_cf">-1590605000</td>
+<td class="gt_row gt_right" headers="Taxes Refund Paid_cf">-412026000</td>
+<td class="gt_row gt_right" headers="Interest Received Cfo_cf">53876000</td>
+<td class="gt_row gt_right" headers="Interest Paid Cfo_cf">-12504000</td>
+<td class="gt_row gt_right" headers="Change In Working Capital_cf">-3508083000</td>
+<td class="gt_row gt_right" headers="Change In Other Current Assets_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Change In Payable_cf">-3247230000</td>
+<td class="gt_row gt_right" headers="Change In Inventory_cf">-1068042000</td>
+<td class="gt_row gt_right" headers="Change In Receivables_cf">801533000</td>
+<td class="gt_row gt_right" headers="Other Non Cash Items_cf">-79783000</td>
+<td class="gt_row gt_right" headers="Depreciation And Amortization_cf">454596000</td>
+<td class="gt_row gt_right" headers="Depreciation_cf">454596000</td>
+<td class="gt_row gt_right" headers="Gain Loss On Investment Securities_cf">4131000</td>
+<td class="gt_row gt_right" headers="Gain Loss On Sale Of PPE_cf">13350000</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing Operations_cf">1895837000</td>
+<td class="gt_row gt_right" headers="Stock_Price">1375.202</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Unnamed: 0_bs">2022-05-31</td>
+<td class="gt_row gt_right" headers="Treasury Shares Number_bs">198197</td>
+<td class="gt_row gt_right" headers="Ordinary Shares Number_bs">11574429</td>
+<td class="gt_row gt_right" headers="Share Issued_bs">11772626</td>
+<td class="gt_row gt_right" headers="Tangible Book Value_bs">21747070000</td>
+<td class="gt_row gt_right" headers="Invested Capital_bs">22645541000</td>
+<td class="gt_row gt_right" headers="Working Capital_bs">13863795000</td>
+<td class="gt_row gt_right" headers="Net Tangible Assets_bs">21747070000</td>
+<td class="gt_row gt_right" headers="Common Stock Equity_bs">22645541000</td>
+<td class="gt_row gt_right" headers="Total Capitalization_bs">22645541000</td>
+<td class="gt_row gt_right" headers="Total Equity Gross Minority Interest_bs">22645781000</td>
+<td class="gt_row gt_right" headers="Minority Interest_bs">240000</td>
+<td class="gt_row gt_right" headers="Stockholders Equity_bs">22645541000</td>
+<td class="gt_row gt_right" headers="Treasury Stock_bs">276921000</td>
+<td class="gt_row gt_right" headers="Retained Earnings_bs">18632298000</td>
+<td class="gt_row gt_right" headers="Additional Paid In Capital_bs">1765224000</td>
+<td class="gt_row gt_right" headers="Capital Stock_bs">1491267000</td>
+<td class="gt_row gt_right" headers="Common Stock_bs">1491267000</td>
+<td class="gt_row gt_right" headers="Total Liabilities Net Minority Interest_bs">26286818000</td>
+<td class="gt_row gt_right" headers="Total Non Current Liabilities Net Minority Interest_bs">1636476000</td>
+<td class="gt_row gt_right" headers="Other Non Current Liabilities_bs">291850000</td>
+<td class="gt_row gt_right" headers="Non Current Pension And Other Postretirement Benefit Plans_bs">1344626000</td>
+<td class="gt_row gt_right" headers="Current Liabilities_bs">24650342000</td>
+<td class="gt_row gt_right" headers="Other Current Liabilities_bs">1797473000</td>
+<td class="gt_row gt_right" headers="Payables_bs">22852869000</td>
+<td class="gt_row gt_right" headers="Total Tax Payable_bs">250013000</td>
+<td class="gt_row gt_right" headers="Accounts Payable_bs">22602856000</td>
+<td class="gt_row gt_right" headers="Total Assets_bs">48932599000</td>
+<td class="gt_row gt_right" headers="Total Non Current Assets_bs">10418460000</td>
+<td class="gt_row gt_right" headers="Other Non Current Assets_bs">402836000</td>
+<td class="gt_row gt_right" headers="Non Current Deferred Taxes Assets_bs">129825000</td>
+<td class="gt_row gt_right" headers="Investmentin Financial Assets_bs">2368588000</td>
+<td class="gt_row gt_right" headers="Available For Sale Securities_bs">2368588000</td>
+<td class="gt_row gt_right" headers="Goodwill And Other Intangible Assets_bs">898471000</td>
+<td class="gt_row gt_right" headers="Net PPE_bs">6618740000</td>
+<td class="gt_row gt_right" headers="Gross PPE_bs">6618739000</td>
+<td class="gt_row gt_right" headers="Other Properties_bs">255043000</td>
+<td class="gt_row gt_right" headers="Buildings And Improvements_bs">2369735000</td>
+<td class="gt_row gt_right" headers="Land And Improvements_bs">3993961000</td>
+<td class="gt_row gt_right" headers="Properties_bs">0</td>
+<td class="gt_row gt_right" headers="Current Assets_bs">38514137000</td>
+<td class="gt_row gt_right" headers="Other Current Assets_bs">303624000</td>
+<td class="gt_row gt_right" headers="Inventory_bs">9165220000</td>
+<td class="gt_row gt_right" headers="Finished Goods_bs">9165220000</td>
+<td class="gt_row gt_right" headers="Other Receivables_bs">2025776000</td>
+<td class="gt_row gt_right" headers="Accounts Receivable_bs">21909529000</td>
+<td class="gt_row gt_right" headers="Gross Accounts Receivable_bs">21909529000</td>
+<td class="gt_row gt_right" headers="Cash Cash Equivalents And Short Term Investments_bs">5109988000</td>
+<td class="gt_row gt_right" headers="Cash And Cash Equivalents_bs">5109988000</td>
+<td class="gt_row gt_right" headers="ticker">1376</td>
+<td class="gt_row gt_right" headers="Unnamed: 0_is">2022-05-31</td>
+<td class="gt_row gt_right" headers="Tax Effect Of Unusual Items_is">-18070520</td>
+<td class="gt_row gt_right" headers="Tax Rate For Calcs_is">0.295</td>
+<td class="gt_row gt_right" headers="Normalized EBITDA_is">2277835000</td>
+<td class="gt_row gt_right" headers="Total Unusual Items_is">-61256000</td>
+<td class="gt_row gt_right" headers="Total Unusual Items Excluding Goodwill_is">-61256000</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing Operation Net Minority Interest_is">1302571000</td>
+<td class="gt_row gt_right" headers="Reconciled Depreciation_is">356884000</td>
+<td class="gt_row gt_right" headers="Reconciled Cost Of Revenue_is">51203850000</td>
+<td class="gt_row gt_right" headers="EBITDA_is">2216579000</td>
+<td class="gt_row gt_right" headers="EBIT_is">1859695000</td>
+<td class="gt_row gt_right" headers="Net Interest Income_is">-8379000</td>
+<td class="gt_row gt_right" headers="Interest Expense_is">11950000</td>
+<td class="gt_row gt_right" headers="Interest Income_is">3571000</td>
+<td class="gt_row gt_right" headers="Normalized Income_is">1345756480</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing And Discontinued Operation_is">1302571000</td>
+<td class="gt_row gt_right" headers="Total Expenses_is">58856140000</td>
+<td class="gt_row gt_right" headers="Total Operating Income As Reported_is">1835625000</td>
+<td class="gt_row gt_right" headers="Diluted Average Shares_is">11647000</td>
+<td class="gt_row gt_right" headers="Basic Average Shares_is">11647000</td>
+<td class="gt_row gt_right" headers="Diluted EPS_is">111.83</td>
+<td class="gt_row gt_right" headers="Basic EPS_is">111.83</td>
+<td class="gt_row gt_right" headers="Diluted NI Availto Com Stockholders_is">1302571000</td>
+<td class="gt_row gt_right" headers="Net Income Common Stockholders_is">1302571000</td>
+<td class="gt_row gt_right" headers="Otherunder Preferred Stock Dividend_is">0</td>
+<td class="gt_row gt_right" headers="Net Income_is">1302571000</td>
+<td class="gt_row gt_right" headers="Minority Interests_is">-51000</td>
+<td class="gt_row gt_right" headers="Net Income Including Noncontrolling Interests_is">1302622000</td>
+<td class="gt_row gt_right" headers="Net Income Continuous Operations_is">1302622000</td>
+<td class="gt_row gt_right" headers="Tax Provision_is">545123000</td>
+<td class="gt_row gt_right" headers="Pretax Income_is">1847745000</td>
+<td class="gt_row gt_right" headers="Other Non Operating Income Expenses_is">108987000</td>
+<td class="gt_row gt_right" headers="Special Income Charges_is">-61256000</td>
+<td class="gt_row gt_right" headers="Other Special Charges_is">55856000</td>
+<td class="gt_row gt_right" headers="Write Off_is">5400000</td>
+<td class="gt_row gt_right" headers="Net Non Operating Interest Income Expense_is">-8379000</td>
+<td class="gt_row gt_right" headers="Interest Expense Non Operating_is">11950000</td>
+<td class="gt_row gt_right" headers="Interest Income Non Operating_is">3571000</td>
+<td class="gt_row gt_right" headers="Operating Income_is">1835626000</td>
+<td class="gt_row gt_right" headers="Operating Expense_is">7652290000</td>
+<td class="gt_row gt_right" headers="Gross Profit_is">9487916000</td>
+<td class="gt_row gt_right" headers="Cost Of Revenue_is">51203850000</td>
+<td class="gt_row gt_right" headers="Total Revenue_is">60691766000</td>
+<td class="gt_row gt_right" headers="Operating Revenue_is">60691766000</td>
+<td class="gt_row gt_right" headers="Unnamed: 0_cf">2022-05-31</td>
+<td class="gt_row gt_right" headers="Free Cash Flow_cf">-150801000</td>
+<td class="gt_row gt_right" headers="Repurchase Of Capital Stock_cf">-155013000</td>
+<td class="gt_row gt_right" headers="Repayment Of Debt_cf">-2.92e+09</td>
+<td class="gt_row gt_right" headers="Issuance Of Debt_cf">2.92e+09</td>
+<td class="gt_row gt_right" headers="Capital Expenditure_cf">-721334000</td>
+<td class="gt_row gt_right" headers="End Cash Position_cf">4776488000</td>
+<td class="gt_row gt_right" headers="Other Cash Adjustment Outside Changein Cash_cf">1000</td>
+<td class="gt_row gt_right" headers="Beginning Cash Position_cf">5486002000</td>
+<td class="gt_row gt_right" headers="Effect Of Exchange Rate Changes_cf">3911000</td>
+<td class="gt_row gt_right" headers="Changes In Cash_cf">-713426000</td>
+<td class="gt_row gt_right" headers="Financing Cash Flow_cf">-531395000</td>
+<td class="gt_row gt_right" headers="Net Other Financing Charges_cf">-36793000</td>
+<td class="gt_row gt_right" headers="Cash Dividends Paid_cf">-339589000</td>
+<td class="gt_row gt_right" headers="Common Stock Dividend Paid_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Common Stock Issuance_cf">-155013000</td>
+<td class="gt_row gt_right" headers="Common Stock Payments_cf">-155013000</td>
+<td class="gt_row gt_right" headers="Net Issuance Payments Of Debt_cf">0</td>
+<td class="gt_row gt_right" headers="Net Short Term Debt Issuance_cf">0</td>
+<td class="gt_row gt_right" headers="Short Term Debt Payments_cf">-2.92e+09</td>
+<td class="gt_row gt_right" headers="Short Term Debt Issuance_cf">2.92e+09</td>
+<td class="gt_row gt_right" headers="Investing Cash Flow_cf">-752564000</td>
+<td class="gt_row gt_right" headers="Net Other Investing Changes_cf">-29588000</td>
+<td class="gt_row gt_right" headers="Net Investment Purchase And Sale_cf">-7673000</td>
+<td class="gt_row gt_right" headers="Sale Of Investment_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Purchase Of Investment_cf">-7673000</td>
+<td class="gt_row gt_right" headers="Net Intangibles Purchase And Sale_cf">-305073000</td>
+<td class="gt_row gt_right" headers="Purchase Of Intangibles_cf">-305073000</td>
+<td class="gt_row gt_right" headers="Net PPE Purchase And Sale_cf">-410230000</td>
+<td class="gt_row gt_right" headers="Sale Of PPE_cf">6031000</td>
+<td class="gt_row gt_right" headers="Purchase Of PPE_cf">-416261000</td>
+<td class="gt_row gt_right" headers="Operating Cash Flow_cf">570533000</td>
+<td class="gt_row gt_right" headers="Taxes Refund Paid_cf">-455342000</td>
+<td class="gt_row gt_right" headers="Interest Received Cfo_cf">43586000</td>
+<td class="gt_row gt_right" headers="Interest Paid Cfo_cf">-11839000</td>
+<td class="gt_row gt_right" headers="Change In Working Capital_cf">-1115884000</td>
+<td class="gt_row gt_right" headers="Change In Other Current Assets_cf">-12485000</td>
+<td class="gt_row gt_right" headers="Change In Payable_cf">-22707000</td>
+<td class="gt_row gt_right" headers="Change In Inventory_cf">-985516000</td>
+<td class="gt_row gt_right" headers="Change In Receivables_cf">-95140000</td>
+<td class="gt_row gt_right" headers="Other Non Cash Items_cf">-161048000</td>
+<td class="gt_row gt_right" headers="Depreciation And Amortization_cf">356884000</td>
+<td class="gt_row gt_right" headers="Depreciation_cf">356884000</td>
+<td class="gt_row gt_right" headers="Gain Loss On Investment Securities_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Gain Loss On Sale Of PPE_cf">56008000</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing Operations_cf">1847745000</td>
+<td class="gt_row gt_right" headers="Stock_Price">1713.870</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="Unnamed: 0_bs">2021-05-31</td>
+<td class="gt_row gt_right" headers="Treasury Shares Number_bs">34148</td>
+<td class="gt_row gt_right" headers="Ordinary Shares Number_bs">11738478</td>
+<td class="gt_row gt_right" headers="Share Issued_bs">11772626</td>
+<td class="gt_row gt_right" headers="Tangible Book Value_bs">20963065000</td>
+<td class="gt_row gt_right" headers="Invested Capital_bs">21696748000</td>
+<td class="gt_row gt_right" headers="Working Capital_bs">13344800000</td>
+<td class="gt_row gt_right" headers="Net Tangible Assets_bs">20963065000</td>
+<td class="gt_row gt_right" headers="Common Stock Equity_bs">21696748000</td>
+<td class="gt_row gt_right" headers="Total Capitalization_bs">21696748000</td>
+<td class="gt_row gt_right" headers="Total Equity Gross Minority Interest_bs">21696953000</td>
+<td class="gt_row gt_right" headers="Minority Interest_bs">205000</td>
+<td class="gt_row gt_right" headers="Stockholders Equity_bs">21696748000</td>
+<td class="gt_row gt_right" headers="Treasury Stock_bs">130303000</td>
+<td class="gt_row gt_right" headers="Retained Earnings_bs">17711991000</td>
+<td class="gt_row gt_right" headers="Additional Paid In Capital_bs">1765224000</td>
+<td class="gt_row gt_right" headers="Capital Stock_bs">1491267000</td>
+<td class="gt_row gt_right" headers="Common Stock_bs">1491267000</td>
+<td class="gt_row gt_right" headers="Total Liabilities Net Minority Interest_bs">25755079000</td>
+<td class="gt_row gt_right" headers="Total Non Current Liabilities Net Minority Interest_bs">1656317000</td>
+<td class="gt_row gt_right" headers="Other Non Current Liabilities_bs">286714000</td>
+<td class="gt_row gt_right" headers="Non Current Pension And Other Postretirement Benefit Plans_bs">1369603000</td>
+<td class="gt_row gt_right" headers="Current Liabilities_bs">24098762000</td>
+<td class="gt_row gt_right" headers="Other Current Liabilities_bs">1325948000</td>
+<td class="gt_row gt_right" headers="Payables_bs">22772814000</td>
+<td class="gt_row gt_right" headers="Total Tax Payable_bs">250761000</td>
+<td class="gt_row gt_right" headers="Accounts Payable_bs">22522053000</td>
+<td class="gt_row gt_right" headers="Total Assets_bs">47452032000</td>
+<td class="gt_row gt_right" headers="Total Non Current Assets_bs">10008467000</td>
+<td class="gt_row gt_right" headers="Other Non Current Assets_bs">402189000</td>
+<td class="gt_row gt_right" headers="Non Current Deferred Taxes Assets_bs">281375000</td>
+<td class="gt_row gt_right" headers="Investmentin Financial Assets_bs">2153610000</td>
+<td class="gt_row gt_right" headers="Available For Sale Securities_bs">2153610000</td>
+<td class="gt_row gt_right" headers="Goodwill And Other Intangible Assets_bs">733683000</td>
+<td class="gt_row gt_right" headers="Net PPE_bs">6437610000</td>
+<td class="gt_row gt_right" headers="Gross PPE_bs">6437608000</td>
+<td class="gt_row gt_right" headers="Other Properties_bs">235076000</td>
+<td class="gt_row gt_right" headers="Buildings And Improvements_bs">2193242000</td>
+<td class="gt_row gt_right" headers="Land And Improvements_bs">4009290000</td>
+<td class="gt_row gt_right" headers="Properties_bs">0</td>
+<td class="gt_row gt_right" headers="Current Assets_bs">37443562000</td>
+<td class="gt_row gt_right" headers="Other Current Assets_bs">141582000</td>
+<td class="gt_row gt_right" headers="Inventory_bs">8150033000</td>
+<td class="gt_row gt_right" headers="Finished Goods_bs">8150033000</td>
+<td class="gt_row gt_right" headers="Other Receivables_bs">1445365000</td>
+<td class="gt_row gt_right" headers="Accounts Receivable_bs">21887080000</td>
+<td class="gt_row gt_right" headers="Gross Accounts Receivable_bs">21887080000</td>
+<td class="gt_row gt_right" headers="Cash Cash Equivalents And Short Term Investments_bs">5819502000</td>
+<td class="gt_row gt_right" headers="Cash And Cash Equivalents_bs">5819502000</td>
+<td class="gt_row gt_right" headers="ticker">1376</td>
+<td class="gt_row gt_right" headers="Unnamed: 0_is">2021-05-31</td>
+<td class="gt_row gt_right" headers="Tax Effect Of Unusual Items_is">24939388</td>
+<td class="gt_row gt_right" headers="Tax Rate For Calcs_is">0.233</td>
+<td class="gt_row gt_right" headers="Normalized EBITDA_is">2022753000</td>
+<td class="gt_row gt_right" headers="Total Unusual Items_is">107036000</td>
+<td class="gt_row gt_right" headers="Total Unusual Items Excluding Goodwill_is">107036000</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing Operation Net Minority Interest_is">1436066000</td>
+<td class="gt_row gt_right" headers="Reconciled Depreciation_is">244895000</td>
+<td class="gt_row gt_right" headers="Reconciled Cost Of Revenue_is">51352635000</td>
+<td class="gt_row gt_right" headers="EBITDA_is">2129789000</td>
+<td class="gt_row gt_right" headers="EBIT_is">1884894000</td>
+<td class="gt_row gt_right" headers="Net Interest Income_is">-8571000</td>
+<td class="gt_row gt_right" headers="Interest Expense_is">12178000</td>
+<td class="gt_row gt_right" headers="Interest Income_is">3607000</td>
+<td class="gt_row gt_right" headers="Normalized Income_is">1353969388</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing And Discontinued Operation_is">1436066000</td>
+<td class="gt_row gt_right" headers="Total Expenses_is">59117693000</td>
+<td class="gt_row gt_right" headers="Total Operating Income As Reported_is">1661398000</td>
+<td class="gt_row gt_right" headers="Diluted Average Shares_is">11666000</td>
+<td class="gt_row gt_right" headers="Basic Average Shares_is">11666000</td>
+<td class="gt_row gt_right" headers="Diluted EPS_is">123.09</td>
+<td class="gt_row gt_right" headers="Basic EPS_is">123.09</td>
+<td class="gt_row gt_right" headers="Diluted NI Availto Com Stockholders_is">1436066000</td>
+<td class="gt_row gt_right" headers="Net Income Common Stockholders_is">1436066000</td>
+<td class="gt_row gt_right" headers="Otherunder Preferred Stock Dividend_is">0</td>
+<td class="gt_row gt_right" headers="Net Income_is">1436066000</td>
+<td class="gt_row gt_right" headers="Minority Interests_is">-43000</td>
+<td class="gt_row gt_right" headers="Net Income Including Noncontrolling Interests_is">1436109000</td>
+<td class="gt_row gt_right" headers="Net Income Continuous Operations_is">1436110000</td>
+<td class="gt_row gt_right" headers="Tax Provision_is">436606000</td>
+<td class="gt_row gt_right" headers="Pretax Income_is">1872716000</td>
+<td class="gt_row gt_right" headers="Other Non Operating Income Expenses_is">108488000</td>
+<td class="gt_row gt_right" headers="Special Income Charges_is">103992000</td>
+<td class="gt_row gt_right" headers="Other Special Charges_is">-161439000</td>
+<td class="gt_row gt_right" headers="Write Off_is">57447000</td>
+<td class="gt_row gt_right" headers="Net Non Operating Interest Income Expense_is">-8571000</td>
+<td class="gt_row gt_right" headers="Interest Expense Non Operating_is">12178000</td>
+<td class="gt_row gt_right" headers="Interest Income Non Operating_is">3607000</td>
+<td class="gt_row gt_right" headers="Operating Income_is">1661399000</td>
+<td class="gt_row gt_right" headers="Operating Expense_is">7765058000</td>
+<td class="gt_row gt_right" headers="Gross Profit_is">9426457000</td>
+<td class="gt_row gt_right" headers="Cost Of Revenue_is">51352635000</td>
+<td class="gt_row gt_right" headers="Total Revenue_is">60779093000</td>
+<td class="gt_row gt_right" headers="Operating Revenue_is">60779093000</td>
+<td class="gt_row gt_right" headers="Unnamed: 0_cf">2021-05-31</td>
+<td class="gt_row gt_right" headers="Free Cash Flow_cf">1266334000</td>
+<td class="gt_row gt_right" headers="Repurchase Of Capital Stock_cf">-781000</td>
+<td class="gt_row gt_right" headers="Repayment Of Debt_cf">-2.86e+09</td>
+<td class="gt_row gt_right" headers="Issuance Of Debt_cf">2.86e+09</td>
+<td class="gt_row gt_right" headers="Capital Expenditure_cf">-1028317000</td>
+<td class="gt_row gt_right" headers="End Cash Position_cf">5486002000</td>
+<td class="gt_row gt_right" headers="Other Cash Adjustment Outside Changein Cash_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Beginning Cash Position_cf">4411028000</td>
+<td class="gt_row gt_right" headers="Effect Of Exchange Rate Changes_cf">4081000</td>
+<td class="gt_row gt_right" headers="Changes In Cash_cf">1070893000</td>
+<td class="gt_row gt_right" headers="Financing Cash Flow_cf">-384763000</td>
+<td class="gt_row gt_right" headers="Net Other Financing Charges_cf">-55470000</td>
+<td class="gt_row gt_right" headers="Cash Dividends Paid_cf">-328512000</td>
+<td class="gt_row gt_right" headers="Common Stock Dividend Paid_cf">-328512000</td>
+<td class="gt_row gt_right" headers="Net Common Stock Issuance_cf">-781000</td>
+<td class="gt_row gt_right" headers="Common Stock Payments_cf">-781000</td>
+<td class="gt_row gt_right" headers="Net Issuance Payments Of Debt_cf">0</td>
+<td class="gt_row gt_right" headers="Net Short Term Debt Issuance_cf">0</td>
+<td class="gt_row gt_right" headers="Short Term Debt Payments_cf">-2.86e+09</td>
+<td class="gt_row gt_right" headers="Short Term Debt Issuance_cf">2.86e+09</td>
+<td class="gt_row gt_right" headers="Investing Cash Flow_cf">-838995000</td>
+<td class="gt_row gt_right" headers="Net Other Investing Changes_cf">-225000</td>
+<td class="gt_row gt_right" headers="Net Investment Purchase And Sale_cf">-1818000</td>
+<td class="gt_row gt_right" headers="Sale Of Investment_cf">5.50e+06</td>
+<td class="gt_row gt_right" headers="Purchase Of Investment_cf">-7318000</td>
+<td class="gt_row gt_right" headers="Net Intangibles Purchase And Sale_cf">-627197000</td>
+<td class="gt_row gt_right" headers="Purchase Of Intangibles_cf">-627197000</td>
+<td class="gt_row gt_right" headers="Net PPE Purchase And Sale_cf">-209755000</td>
+<td class="gt_row gt_right" headers="Sale Of PPE_cf">191365000</td>
+<td class="gt_row gt_right" headers="Purchase Of PPE_cf">-401120000</td>
+<td class="gt_row gt_right" headers="Operating Cash Flow_cf">2294651000</td>
+<td class="gt_row gt_right" headers="Taxes Refund Paid_cf">-464748000</td>
+<td class="gt_row gt_right" headers="Interest Received Cfo_cf">40671000</td>
+<td class="gt_row gt_right" headers="Interest Paid Cfo_cf">-11869000</td>
+<td class="gt_row gt_right" headers="Change In Working Capital_cf">556549000</td>
+<td class="gt_row gt_right" headers="Change In Other Current Assets_cf">6099000</td>
+<td class="gt_row gt_right" headers="Change In Payable_cf">-650120000</td>
+<td class="gt_row gt_right" headers="Change In Inventory_cf">327893000</td>
+<td class="gt_row gt_right" headers="Change In Receivables_cf">854494000</td>
+<td class="gt_row gt_right" headers="Other Non Cash Items_cf">-171393000</td>
+<td class="gt_row gt_right" headers="Depreciation And Amortization_cf">244895000</td>
+<td class="gt_row gt_right" headers="Depreciation_cf">244895000</td>
+<td class="gt_row gt_right" headers="Gain Loss On Investment Securities_cf">-3044000</td>
+<td class="gt_row gt_right" headers="Gain Loss On Sale Of PPE_cf">5243000</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing Operations_cf">1872716000</td>
+<td class="gt_row gt_right" headers="Stock_Price">1375.218</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="Unnamed: 0_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Treasury Shares Number_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Ordinary Shares Number_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Share Issued_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Tangible Book Value_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Invested Capital_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Working Capital_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Tangible Assets_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Common Stock Equity_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Capitalization_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Equity Gross Minority Interest_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Minority Interest_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Stockholders Equity_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Treasury Stock_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Retained Earnings_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Additional Paid In Capital_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Capital Stock_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Common Stock_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Liabilities Net Minority Interest_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Non Current Liabilities Net Minority Interest_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Other Non Current Liabilities_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Non Current Pension And Other Postretirement Benefit Plans_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Current Liabilities_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Other Current Liabilities_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Payables_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Tax Payable_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Accounts Payable_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Assets_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Non Current Assets_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Other Non Current Assets_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Non Current Deferred Taxes Assets_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Investmentin Financial Assets_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Available For Sale Securities_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Goodwill And Other Intangible Assets_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Net PPE_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Gross PPE_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Other Properties_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Buildings And Improvements_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Land And Improvements_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Properties_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Current Assets_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Other Current Assets_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Inventory_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Finished Goods_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Other Receivables_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Accounts Receivable_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Gross Accounts Receivable_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Cash Cash Equivalents And Short Term Investments_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="Cash And Cash Equivalents_bs"><br>
+</td>
+<td class="gt_row gt_right" headers="ticker"><br>
+</td>
+<td class="gt_row gt_right" headers="Unnamed: 0_is">2020-05-31</td>
+<td class="gt_row gt_right" headers="Tax Effect Of Unusual Items_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Tax Rate For Calcs_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Normalized EBITDA_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Unusual Items_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Unusual Items Excluding Goodwill_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing Operation Net Minority Interest_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Reconciled Depreciation_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Reconciled Cost Of Revenue_is"><br>
+</td>
+<td class="gt_row gt_right" headers="EBITDA_is"><br>
+</td>
+<td class="gt_row gt_right" headers="EBIT_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Interest Income_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Interest Expense_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Interest Income_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Normalized Income_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing And Discontinued Operation_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Expenses_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Operating Income As Reported_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Diluted Average Shares_is">11698000</td>
+<td class="gt_row gt_right" headers="Basic Average Shares_is">11698000</td>
+<td class="gt_row gt_right" headers="Diluted EPS_is">95.95</td>
+<td class="gt_row gt_right" headers="Basic EPS_is">95.95</td>
+<td class="gt_row gt_right" headers="Diluted NI Availto Com Stockholders_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Income Common Stockholders_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Otherunder Preferred Stock Dividend_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Income_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Minority Interests_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Income Including Noncontrolling Interests_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Income Continuous Operations_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Tax Provision_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Pretax Income_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Other Non Operating Income Expenses_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Special Income Charges_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Other Special Charges_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Write Off_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Non Operating Interest Income Expense_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Interest Expense Non Operating_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Interest Income Non Operating_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Operating Income_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Operating Expense_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Gross Profit_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Cost Of Revenue_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Total Revenue_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Operating Revenue_is"><br>
+</td>
+<td class="gt_row gt_right" headers="Unnamed: 0_cf">2020-05-31</td>
+<td class="gt_row gt_right" headers="Free Cash Flow_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Repurchase Of Capital Stock_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Repayment Of Debt_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Issuance Of Debt_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Capital Expenditure_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="End Cash Position_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Other Cash Adjustment Outside Changein Cash_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Beginning Cash Position_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Effect Of Exchange Rate Changes_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Changes In Cash_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Financing Cash Flow_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Other Financing Charges_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Cash Dividends Paid_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Common Stock Dividend Paid_cf">-328053000</td>
+<td class="gt_row gt_right" headers="Net Common Stock Issuance_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Common Stock Payments_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Issuance Payments Of Debt_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Short Term Debt Issuance_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Short Term Debt Payments_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Short Term Debt Issuance_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Investing Cash Flow_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Other Investing Changes_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Investment Purchase And Sale_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Sale Of Investment_cf">1.06e+06</td>
+<td class="gt_row gt_right" headers="Purchase Of Investment_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Intangibles Purchase And Sale_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Purchase Of Intangibles_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Net PPE Purchase And Sale_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Sale Of PPE_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Purchase Of PPE_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Operating Cash Flow_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Taxes Refund Paid_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Interest Received Cfo_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Interest Paid Cfo_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Change In Working Capital_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Change In Other Current Assets_cf">63703000</td>
+<td class="gt_row gt_right" headers="Change In Payable_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Change In Inventory_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Change In Receivables_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Other Non Cash Items_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Depreciation And Amortization_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Depreciation_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Gain Loss On Investment Securities_cf">-774000</td>
+<td class="gt_row gt_right" headers="Gain Loss On Sale Of PPE_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Net Income From Continuing Operations_cf"><br>
+</td>
+<td class="gt_row gt_right" headers="Stock_Price"><br>
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>PL_df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span>, <span class="st">`</span><span class="at">Total Revenue_is</span><span class="st">`</span>, <span class="st">`</span><span class="at">Operating Income_is</span><span class="st">`</span>, <span class="st">`</span><span class="at">Net Income_is</span><span class="st">`</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df <span class="sc">|&gt;</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span>  <span class="st">"利益"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"金額"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#PL_df_loの列名変更、NA消去等</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> <span class="fu">rename</span>(PL_df_lo, <span class="at">Year=</span><span class="st">`</span><span class="at">Unnamed: 0_bs</span><span class="st">`</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df_lo <span class="sc">|&gt;</span> </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Year))</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df_lo <span class="sc">|&gt;</span> </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">substr</span>(Year,<span class="dv">1</span>,<span class="dv">4</span>))</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="ot">&lt;-</span> PL_df_lo <span class="sc">|&gt;</span> </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(利益 <span class="ot">=</span> <span class="fu">recode</span>(利益,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Total Revenue_is"</span> <span class="ot">=</span> <span class="st">"売上高"</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Operating Income_is"</span> <span class="ot">=</span> <span class="st">"営業利益"</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Net Income_is"</span> <span class="ot">=</span> <span class="st">"純利益"</span>))</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>PL_df_lo <span class="sc">|&gt;</span> </span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> 金額 , <span class="at">fill =</span> 利益)) <span class="sc">+</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"売上高・営業利益・純利益の推移"</span>,</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"年度"</span>,</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"金額"</span>,</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"利益"</span>) <span class="sc">+</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="market_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

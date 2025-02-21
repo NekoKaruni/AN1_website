@@ -8,9 +8,11 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: ホーム
+      - href: market.qmd
+        text: 市場分析
       - href: about.qmd
-        text: About
+        text: サイト概要
     right:
       - icon: github
         href: "https://github.com/NekoKaruni/AN1.git"
